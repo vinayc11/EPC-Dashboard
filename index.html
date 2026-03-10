@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EPC Sector Dashboard — India</title>
+<title>EPC Sector Dashboard — India Capital Markets</title>
 <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9}::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:#f1f5f9}::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}</style>
 </head>
 <body>
@@ -409,7 +409,7 @@ const BKT = {
 };
 const BO = ["Anchor", "T&D", "Water", "EPC & Asset Owners", "Others"];
 // [ticker,name,bucket, ob,em,eAbs, pledge,nd,dso,roce,pe, bwr,bw,bs, sub, mobIB,mobR,mobT, nfbL,nfbU,nfbP]
-const RAW = [["LT", "Larsen & Toubro", "Anchor", 5.4, 12.8, 13860, 0, .4, 105, 18, 28, 38, 198, 520, 52, 62, 9.5, 8400, 185000, 112000, 61], ["KPIL", "Kalpataru Projects", "T&D", 4.0, 8.8, 1638, 18, 2.6, 140, 13, 24, 31, 87, 280, 58, 50, 10.5, 1100, 20000, 14600, 73], ["KEC", "KEC International", "T&D", 3.5, 8.6, 1823, 8, 2.1, 130, 16, 22, 33, 102, 310, 55, 55, 10.8, 1450, 22000, 15180, 69], ["SKIPPER", "Skipper Ltd", "T&D", 4.2, 9.2, 281, 22, 2.3, 125, 14, 19, 28, 52, 185, 42, 38, 11.0, 180, 4500, 3330, 74], ["TRANSRAIL", "Transrail Lighting", "T&D", 3.8, 10.2, 412, 5, 1.8, 118, 15, 20, 35, 56, 160, 48, 42, 10.2, 220, 6000, 4080, 68], ["WABAG", "VA Tech Wabag", "Water", 3.9, 11.2, 402, 0, .8, 155, 16, 22, 42, 82, 195, 45, 28, 9.0, 290, 8500, 5695, 67], ["IONEXCHANG", "ION Exchange", "Water", 2.8, 12.5, 310, 0, .2, 95, 22, 30, 48, 58, 120, 35, 15, 8.5, 85, 3200, 1920, 60], ["RAMKY", "Ramky Infrastructure", "Water", 3.2, 10.8, 388, 12, 2.8, 175, 11, 16, 28, 41, 145, 62, 65, 12.0, 480, 7500, 6000, 80], ["EMS", "EMS Ltd", "Water", 4.5, 14.2, 213, 2, .5, 135, 18, 25, 45, 38, 85, 38, 22, 9.5, 92, 2800, 1680, 60], ["SPMLINFRA", "SPML Infra", "Water", 2.5, 8.5, 128, 35, 4.2, 210, 6, null, 22, 21, 95, 72, 82, 13.5, 350, 4200, 3780, 90], ["NCC", "NCC Ltd", "EPC & Asset Owners", 3.6, 9.8, 1715, 5, 1.2, 148, 15, 18, 36, 115, 320, 55, 45, 10.2, 1100, 28000, 20160, 72], ["GRINFRA", "G R Infraprojects", "EPC & Asset Owners", 3.2, 16.5, 1452, 0, 1.8, 88, 14, 14, 52, 46, 88, 32, 18, 9.0, 620, 15000, 9000, 60], ["DBL", "Dilip Buildcon", "EPC & Asset Owners", 2.8, 13.2, 1585, 32, 3.8, 162, 9, 12, 32, 53, 165, 48, 58, 11.5, 1800, 25000, 20000, 80], ["WELSPUNENT", "Welspun Enterprises", "EPC & Asset Owners", 3.5, 14.8, 740, 0, .5, 112, 13, 15, 42, 40, 95, 38, 25, 9.5, 380, 10000, 6500, 65], ["PNCINFRA", "PNC Infratech", "EPC & Asset Owners", 3.8, 14.6, 1606, 8, 1.4, 102, 15, 16, 44, 55, 125, 35, 22, 9.2, 720, 18000, 11520, 64], ["HGINFRA", "HG Infra Engg", "EPC & Asset Owners", 4.1, 15.2, 760, 0, .6, 95, 17, 17, 48, 47, 98, 28, 18, 8.8, 280, 9000, 5850, 65], ["ASHOKA", "Ashoka Buildcon", "EPC & Asset Owners", 3.4, 13.8, 993, 28, 2.2, 128, 11, 14, 35, 48, 138, 45, 42, 10.8, 820, 16000, 11520, 72], ["KNRCON", "KNR Constructions", "EPC & Asset Owners", 3.9, 15.8, 711, 0, .4, 92, 18, 18, 50, 53, 105, 30, 15, 8.5, 260, 8500, 5440, 64], ["CEIGALL", "Ceigall India", "EPC & Asset Owners", 4.8, 14.5, 580, 0, .8, 98, 16, 19, 46, 40, 88, 32, 20, 9.0, 220, 7000, 4480, 64], ["AFCONS", "Afcons Infrastructure", "Others", 3.8, 10.5, 1050, 0, 1.5, 135, 13, 20, 38, 48, 125, 52, 35, 10.0, 980, 22000, 14740, 67], ["TECHNO", "Techno Electric", "Others", 4.2, 18.5, 555, 0, -.5, 72, 22, 25, 55, 43, 78, 25, 8, 8.0, 120, 6500, 3900, 60], ["POWERMECH", "Power Mech Projects", "Others", 3.5, 11.2, 616, 5, .6, 118, 16, 16, 40, 66, 165, 48, 32, 9.5, 480, 11000, 7040, 64], ["AHLUCONT", "Ahluwalia Contracts", "Others", 3.2, 10.5, 525, 0, 0, 108, 17, 20, 42, 50, 118, 52, 28, 9.0, 320, 8000, 4800, 60], ["JKUMAR", "J Kumar Infraprojects", "Others", 3.8, 12.8, 640, 15, 1.8, 142, 13, 15, 36, 46, 128, 58, 48, 10.5, 680, 12000, 8280, 69], ["PSPPROJECT", "PSP Projects", "Others", 2.9, 11.8, 413, 0, .2, 95, 19, 21, 45, 43, 95, 42, 20, 8.8, 220, 6500, 3900, 60], ["VPRPL", "VPRPL", "Others", 3.5, 9.8, 196, 8, 1.5, 135, 12, 14, 32, 36, 112, 55, 52, 11.0, 280, 5000, 3500, 70], ["CEMINDIA", "Cemindia Projects", "Others", 2.2, 12.5, 1120, 0, .3, 115, 16, 21, 38, 55, 138, 50, 28, 9.5, 580, 14000, 9100, 65]];
+const RAW = [["LT", "Larsen & Toubro", "Anchor", 5.4, 12.8, 13860, 0, .4, 105, 18, 28, 38, 198, 520, 52, 62, 9.5, 8400, 185000, 112000, 61], ["KPIL", "Kalpataru Projects", "T&D", 4.0, 8.8, 1638, 18, 2.6, 140, 13, 24, 31, 87, 280, 58, 50, 10.5, 1100, 20000, 14600, 73], ["KEC", "KEC International", "T&D", 3.5, 8.6, 1823, 8, 2.1, 130, 16, 22, 33, 102, 310, 55, 55, 10.8, 1450, 22000, 15180, 69], ["SKIPPER", "Skipper Ltd", "T&D", 4.2, 9.2, 281, 22, 2.3, 125, 14, 19, 28, 52, 185, 42, 38, 11.0, 180, 4500, 3330, 74], ["TRANSRAIL", "Transrail Lighting", "T&D", 3.8, 10.2, 412, 5, 1.8, 118, 15, 20, 35, 56, 160, 48, 42, 10.2, 220, 6000, 4080, 68], ["WABAG", "VA Tech Wabag", "Water", 3.9, 11.2, 402, 0, .8, 155, 16, 22, 42, 82, 195, 45, 28, 9.0, 290, 8500, 5695, 67], ["IONEXCHANG", "ION Exchange", "Water", 2.8, 12.5, 310, 0, .2, 95, 22, 30, 48, 58, 120, 35, 15, 8.5, 85, 3200, 1920, 60], ["RAMKY", "Ramky Infrastructure", "Water", 3.2, 10.8, 388, 12, 2.8, 175, 11, 16, 28, 41, 145, 62, 65, 12.0, 480, 7500, 6000, 80], ["EMS", "EMS Ltd", "Water", 4.5, 14.2, 213, 2, .5, 135, 18, 25, 45, 38, 85, 38, 22, 9.5, 92, 2800, 1680, 60], ["SPMLINFRA", "SPML Infra", "Water", 2.5, 8.5, 128, 35, 4.2, 210, 6, null, 22, 21, 95, 72, 82, 13.5, 350, 4200, 3780, 90], ["NCC", "NCC Ltd", "EPC & Asset Owners", 3.6, 9.8, 1715, 5, 1.2, 148, 15, 18, 36, 115, 320, 55, 45, 10.2, 1100, 28000, 20160, 72], ["GRINFRA", "G R Infraprojects", "EPC & Asset Owners", 3.2, 16.5, 1452, 0, 1.8, 88, 14, 14, 52, 46, 88, 32, 18, 9.0, 620, 15000, 9000, 60], ["DBL", "Dilip Buildcon", "EPC & Asset Owners", 2.8, 13.2, 1585, 32, 3.8, 162, 9, 12, 32, 53, 165, 48, 58, 11.5, 1800, 25000, 20000, 80], ["WELSPUNENT", "Welspun Enterprises", "EPC & Asset Owners", 3.5, 14.8, 740, 0, .5, 112, 13, 15, 42, 40, 95, 38, 25, 9.5, 380, 10000, 6500, 65], ["PNCINFRA", "PNC Infratech", "EPC & Asset Owners", 3.8, 14.6, 1606, 8, 1.4, 102, 15, 16, 44, 55, 125, 35, 22, 9.2, 720, 18000, 11520, 64], ["HGINFRA", "HG Infra Engg", "EPC & Asset Owners", 4.1, 15.2, 760, 0, .6, 95, 17, 17, 48, 47, 98, 28, 18, 8.8, 280, 9000, 5850, 65], ["ASHOKA", "Ashoka Buildcon", "EPC & Asset Owners", 3.4, 13.8, 993, 28, 2.2, 128, 11, 14, 35, 48, 138, 45, 42, 10.8, 820, 16000, 11520, 72], ["KNRCON", "KNR Constructions", "EPC & Asset Owners", 3.9, 15.8, 711, 0, .4, 92, 18, 18, 50, 53, 105, 30, 15, 8.5, 260, 8500, 5440, 64], ["CEIGALL", "Ceigall India", "EPC & Asset Owners", 4.8, 14.5, 580, 0, .8, 98, 16, 19, 46, 40, 88, 32, 20, 9.0, 220, 7000, 4480, 64], ["AFCONS", "Afcons Infrastructure", "Others", 3.8, 10.5, 1050, 0, 1.5, 135, 13, 20, 38, 48, 125, 52, 35, 10.0, 980, 22000, 14740, 67], ["TECHNO", "Techno Electric", "Others", 4.2, 18.5, 555, 0, -.5, 72, 22, 25, 55, 43, 78, 25, 8, 8.0, 120, 6500, 3900, 60], ["POWERMECH", "Power Mech Projects", "Others", 3.5, 11.2, 616, 5, .6, 118, 16, 16, 40, 66, 165, 48, 32, 9.5, 480, 11000, 7040, 64], ["AHLUCONT", "Ahluwalia Contracts", "Others", 3.2, 10.5, 525, 0, 0, 108, 17, 20, 42, 50, 118, 52, 28, 9.0, 320, 8000, 4800, 60], ["JKUMAR", "J Kumar Infraprojects", "Others", 3.8, 12.8, 640, 15, 1.8, 142, 13, 15, 36, 46, 128, 58, 48, 10.5, 680, 12000, 8280, 69], ["PSPPROJECT", "PSP Projects", "Others", 2.9, 11.8, 413, 0, .2, 95, 19, 21, 45, 43, 95, 42, 20, 8.8, 220, 6500, 3900, 60], ["VPRPL", "VPRPL", "Others", 3.5, 9.8, 196, 8, 1.5, 135, 12, 14, 32, 36, 112, 55, 52, 11.0, 280, 5000, 3500, 70], ["HCC", "Hindustan Construction", "Others", 2.2, 7.5, 3500, 58, 3.2, 188, 5, null, 18, 28, 155, 65, 48, 9.0, 620, 12000, 8400, 70], ["CAPACITE", "Capacit'e Infraprojects", "Others", 4.8, 16.0, 740, 32, 0.3, 120, 12, 25, 28, 55, 195, 45, 32, 9.0, 280, 5000, 3500, 70], ["CEMINDIA", "Cemindia Projects", "Others", 2.2, 12.5, 1120, 0, .3, 115, 16, 21, 38, 55, 138, 50, 28, 9.5, 580, 14000, 9100, 65]];
 const COS_RAW = RAW.map(r => ({
   ticker: r[0],
   name: r[1],
@@ -459,7 +459,9 @@ const OBD = {
   JKUMAR: [22, 28, 18, 22, 2, 5, 3, 88],
   PSPPROJECT: [0, 0, 92, 2, 2, 2, 2, 35],
   VPRPL: [85, 8, 0, 2, 2, 2, 1, 95],
-  CEMINDIA: [5, 25, 18, 22, 8, 10, 12, 75]
+  CEMINDIA: [5, 25, 18, 22, 8, 10, 12, 75],
+  HCC: [42, 5, 2, 18, 26, 2, 5, 58],
+  CAPACITE: [0, 0, 98, 0, 0, 2, 0, 42]
 };
 const SK = ["Roads", "Rail", "Bldg", "Water", "Power", "Indl", "Other"];
 const SC = ["#f59e0b", "#3b82f6", "#8b5cf6", "#06b6d4", "#ef4444", "#10b981", "#94a3b8"];
@@ -831,6 +833,20 @@ const CD = {
     },
     br: [["Systematix", 2380, 244, 10.3, 85, 25.9, 12.8, 228, "BUY"]]
   },
+  // HCC: Legacy infra — tunnels, hydro, nuclear, marine; turnaround story; high arbitration receivables
+  HCC: {
+    fa: [["FY27", "Rev Growth", "15–18%", "", ""], ["FY27", "EBITDA Margin", "8–9%", "", ""], ["FY27", "Order Inflow", "Rs 6,000–7,000 Cr", "", ""]],
+    fq: [["Q4FY26", "Revenue", "Rs 1,000 Cr+", "", ""]],
+    ha: [["FY25", "Rev Growth", "−20%", "−20.0% (₹4,801 Cr)", "met"], ["FY25", "EBITDA Margin", "8–9%", "8.5%", "met"], ["FY24", "Rev Growth", "−15%", "−18.0% (₹6,007 Cr)", "miss"], ["FY24", "EBITDA Margin", "8%+", "8.1%", "met"], ["FY23", "Rev Growth", "10%+", "12.5%", "beat"], ["FY23", "EBITDA Margin", "7–8%", "7.5%", "met"]],
+    hq: [["Q3FY26", "Revenue", "Rs 950 Cr", "Rs 961 Cr", "met"], ["Q3FY26", "EBITDA Margin", "8%", "7.5%", "miss"], ["Q2FY26", "Revenue", "Rs 980 Cr", "Rs 983 Cr", "met"], ["Q2FY26", "EBITDA Margin", "8%", "8.5%", "beat"], ["Q1FY26", "Revenue", "Rs 900 Cr", "Rs 898 Cr", "met"], ["Q1FY26", "EBITDA Margin", "8%", "7.8%", "met"], ["Q4FY25", "Revenue", "Rs 1,200 Cr", "Rs 1,250 Cr", "beat"], ["Q4FY25", "EBITDA Margin", "8%", "8.2%", "met"], ["Q3FY25", "Revenue", "Rs 1,100 Cr", "Rs 1,080 Cr", "miss"], ["Q3FY25", "EBITDA Margin", "7.5%", "7.2%", "miss"], ["Q2FY25", "Revenue", "Rs 1,000 Cr", "Rs 1,035 Cr", "met"], ["Q2FY25", "EBITDA Margin", "8%", "8.0%", "met"], ["Q1FY25", "Revenue", "Rs 950 Cr", "Rs 915 Cr", "miss"], ["Q1FY25", "EBITDA Margin", "7.5%", "7.1%", "miss"], ["Q4FY24", "Revenue", "Rs 1,500 Cr", "Rs 1,580 Cr", "beat"], ["Q4FY24", "EBITDA Margin", "8%", "8.3%", "met"]]
+  },
+  // CAPACITE: Building/high-rise specialist; MMR dominant; data centers new vertical; FY25 PAT ₹204 Cr
+  CAPACITE: {
+    fa: [["FY27", "Rev Growth", "18–22%", "", ""], ["FY27", "EBITDA Margin", "16–17%", "", ""], ["FY27", "Order Inflow", "Rs 4,000 Cr+", "", ""]],
+    fq: [["Q4FY26", "Revenue", "Rs 700–750 Cr", "", ""], ["Q4FY26", "EBITDA Margin", "16–17%", "", ""]],
+    ha: [["FY25", "Rev Growth", "21.6%", "21.6% (₹2,407 Cr)", "met"], ["FY25", "EBITDA Margin", "18.2%", "18.2%", "met"], ["FY25", "PAT", "Rs 120 Cr+", "Rs 204 Cr", "beat"], ["FY24", "Rev Growth", "18%+", "17.5% (₹1,964 Cr)", "miss"], ["FY24", "EBITDA Margin", "18%", "18.5%", "met"], ["FY23", "Rev Growth", "15%+", "19.2%", "beat"], ["FY23", "EBITDA Margin", "17.5%", "17.9%", "met"]],
+    hq: [["Q3FY26", "Revenue", "Rs 640–660 Cr", "Rs 675 Cr", "beat"], ["Q3FY26", "EBITDA Margin", "16%", "16.0%", "met"], ["Q2FY26", "Revenue", "Rs 620–640 Cr", "Rs 646 Cr", "beat"], ["Q2FY26", "EBITDA Margin", "16.5%", "16.8%", "beat"], ["Q1FY26", "Revenue", "Rs 580–600 Cr", "Rs 599 Cr", "met"], ["Q1FY26", "EBITDA Margin", "18%", "18.6%", "met"], ["Q4FY25", "Revenue", "Rs 580 Cr", "Rs 563 Cr", "miss"], ["Q4FY25", "EBITDA Margin", "18%", "17.8%", "miss"], ["Q3FY25", "Revenue", "Rs 590 Cr", "Rs 601 Cr", "met"], ["Q3FY25", "EBITDA Margin", "15%", "15.3%", "met"], ["Q2FY25", "Revenue", "Rs 560 Cr", "Rs 578 Cr", "met"], ["Q2FY25", "EBITDA Margin", "15.5%", "16.2%", "beat"], ["Q1FY25", "Revenue", "Rs 540 Cr", "Rs 541 Cr", "met"], ["Q1FY25", "EBITDA Margin", "16%", "16.2%", "met"], ["Q4FY24", "Revenue", "Rs 500 Cr", "Rs 484 Cr", "miss"], ["Q4FY24", "EBITDA Margin", "15%", "14.8%", "miss"]]
+  },
   // ✅ CEMINDIA: Q3FY26 verified — Net debt ₹563 Cr, NW ₹2,159 Cr, OB ₹21,879 Cr (BSE Feb-5-26)
   CEMINDIA: {
     cmp: 564,
@@ -845,6 +861,36 @@ const CD = {
       d: [14000, 1680, 690]
     },
     br: [["Kotak", 10600, 1165, 11.0, 462, 21.0, 12.0, 720, "BUY"], ["ICICI Sec", 10400, 1142, 11.0, 448, 20.3, 11.7, 700, "BUY"]]
+  },
+  // HCC turnaround story — high debt, high arbitration receivables, complex projects (tunnels/hydro/nuclear)
+  HCC: {
+    cmp: 22,
+    mcap: 5870,
+    nd: 3200,
+    gd: 4500,
+    cash: 1300,
+    f: {
+      a: [4350, 369, 42],
+      b: [5200, 468, 95],
+      c: [6100, 580, 165],
+      d: [7100, 710, 252]
+    },
+    br: [["Elara", 5200, 468, 9.0, 95, 61.8, 14.5, 63, "BUY"], ["Sharekhan", 5100, 459, 9.0, 88, 57.1, 14.0, 60, "BUY"]]
+  },
+  // CAPACITE: High-rise building specialist; net debt ₹149 Cr; FY25 PAT ₹204 Cr; working capital 164 days → 90 days target
+  CAPACITE: {
+    cmp: 254,
+    mcap: 2200,
+    nd: 149,
+    gd: 464,
+    cash: 315,
+    f: {
+      a: [2407, 437, 204],
+      b: [2900, 551, 262],
+      c: [3550, 700, 340],
+      d: [4300, 878, 435]
+    },
+    br: [["Axis", 3600, 714, 19.7, 352, 6.2, 7.2, 411, "BUY"], ["ICICI Sec", 3550, 697, 19.6, 338, 6.5, 7.0, 411, "BUY"], ["Emkay", 3650, 723, 19.8, 362, 6.1, 7.3, 411, "BUY"]]
   }
 };
 // Trading seed
@@ -1701,6 +1747,20 @@ const GD = {
     fq: [["Q4FY26", "Revenue", "Rs 3–3.2K Cr", "H", "Q3FY26"]],
     ha: [["FY25", "Rev Growth", "8–12%", "13.6%", "beat"], ["FY25", "EBITDA Margin", "14–16%", "14.8%", "met"], ["FY24", "Rev Growth", "15%+", "10.1%", "miss"], ["FY24", "EBITDA Margin", "14–16%", "14.7%", "met"], ["FY23", "Rev Growth", "15–20%", "22.4%", "beat"], ["FY23", "EBITDA Margin", "14–16%", "14.9%", "met"], ["FY22", "Rev Growth", "10–15%", "12.8%", "met"], ["FY22", "EBITDA Margin", "14–16%", "15.0%", "met"], ["FY21", "Rev Growth", "5%+", "8.5%", "beat"], ["FY21", "EBITDA Margin", "14–16%", "15.3%", "met"], ["FY20", "Rev Growth", "15%+", "10.2%", "miss"], ["FY20", "EBITDA Margin", "14–16%", "15.2%", "met"], ["FY19", "Rev Growth", "20%+", "22.5%", "beat"], ["FY19", "EBITDA Margin", "14–16%", "14.8%", "met"], ["FY18", "Rev Growth", "15%+", "18.0%", "beat"], ["FY18", "EBITDA Margin", "13–15%", "14.5%", "met"], ["FY17", "Rev Growth", "10–12%", "12.5%", "beat"], ["FY17", "EBITDA Margin", "13–15%", "14.2%", "met"], ["FY16", "Rev Growth", "12–15%", "11.0%", "miss"], ["FY16", "EBITDA Margin", "13–15%", "13.8%", "met"], ["FY15", "Rev Growth", "15%+", "12.0%", "miss"], ["FY15", "EBITDA Margin", "12–14%", "13.2%", "met"], ["FY14", "Rev Growth", "12–15%", "14.5%", "met"], ["FY14", "EBITDA Margin", "12–14%", "13.5%", "met"], ["FY13", "Rev Growth", "18%+", "20.2%", "beat"], ["FY13", "EBITDA Margin", "12–13%", "12.8%", "met"], ["FY12", "Rev Growth", "20%+", "22.8%", "beat"], ["FY12", "EBITDA Margin", "12%+", "12.5%", "met"], ["FY11", "Rev Growth", "18%+", "19.5%", "met"], ["FY11", "EBITDA Margin", "11.5–12.5%", "12.0%", "met"], ["FY10", "Rev Growth", "15%+", "10.2%", "miss"], ["FY10", "EBITDA Margin", "11–12%", "11.5%", "met"]],
     hq: [["Q3FY26", "Revenue", "Rs 2.5K Cr", "Rs 2,600 Cr", "beat"], ["Q2FY26", "Revenue", "Rs 2.3K Cr", "Rs 2,250 Cr", "miss"], ["Q1FY26", "Revenue", "Rs 2K Cr", "Rs 1,980 Cr", "miss"], ["Q4FY25", "Revenue", "Rs 2.8K Cr+", "Rs 2,920 Cr", "beat"], ["Q3FY25", "Revenue", "Rs 2.5K Cr", "Rs 2,480 Cr", "miss"], ["Q2FY25", "Revenue", "Rs 2.3K Cr", "Rs 2,380 Cr", "beat"], ["Q1FY25", "Revenue", "Rs 2K Cr", "Rs 2,050 Cr", "met"], ["Q4FY24", "Revenue", "Rs 2.5K Cr+", "Rs 2,680 Cr", "beat"], ["Q3FY24", "Revenue", "Rs 2.2K Cr", "Rs 2,150 Cr", "miss"], ["Q2FY24", "Revenue", "Rs 2K Cr", "Rs 2,080 Cr", "beat"], ["Q1FY24", "Revenue", "Rs 1.8K Cr", "Rs 1,780 Cr", "miss"], ["Q4FY23", "Revenue", "Rs 2.2K Cr", "Rs 2,320 Cr", "beat"], ["Q3FY23", "Revenue", "Rs 1.9K Cr", "Rs 1,980 Cr", "beat"], ["Q2FY23", "Revenue", "Rs 1.7K Cr", "Rs 1,720 Cr", "met"], ["Q1FY23", "Revenue", "Rs 1.5K Cr", "Rs 1,580 Cr", "beat"], ["Q4FY22", "Revenue", "Rs 1.6K Cr", "Rs 1,680 Cr", "beat"], ["Q3FY22", "Revenue", "Rs 1.4K Cr", "Rs 1,380 Cr", "miss"], ["Q2FY22", "Revenue", "Rs 1.2K Cr", "Rs 1,250 Cr", "beat"], ["Q1FY22", "Revenue", "Rs 1.1K Cr", "Rs 1,120 Cr", "met"], ["Q4FY21", "Revenue", "Rs 1.2K Cr", "Rs 1,180 Cr", "miss"]]
+  },
+  // HCC: Legacy infra — tunnels, hydro, nuclear, marine; turnaround story; high arbitration receivables
+  HCC: {
+    fa: [["FY27", "Rev Growth", "15–18%", "", ""], ["FY27", "EBITDA Margin", "8–9%", "", ""], ["FY27", "Order Inflow", "Rs 6,000–7,000 Cr", "", ""]],
+    fq: [["Q4FY26", "Revenue", "Rs 1,000 Cr+", "", ""]],
+    ha: [["FY25", "Rev Growth", "−20%", "−20.0% (₹4,801 Cr)", "met"], ["FY25", "EBITDA Margin", "8–9%", "8.5%", "met"], ["FY24", "Rev Growth", "−15%", "−18.0% (₹6,007 Cr)", "miss"], ["FY24", "EBITDA Margin", "8%+", "8.1%", "met"], ["FY23", "Rev Growth", "10%+", "12.5%", "beat"], ["FY23", "EBITDA Margin", "7–8%", "7.5%", "met"]],
+    hq: [["Q3FY26", "Revenue", "Rs 950 Cr", "Rs 961 Cr", "met"], ["Q3FY26", "EBITDA Margin", "8%", "7.5%", "miss"], ["Q2FY26", "Revenue", "Rs 980 Cr", "Rs 983 Cr", "met"], ["Q2FY26", "EBITDA Margin", "8%", "8.5%", "beat"], ["Q1FY26", "Revenue", "Rs 900 Cr", "Rs 898 Cr", "met"], ["Q1FY26", "EBITDA Margin", "8%", "7.8%", "met"], ["Q4FY25", "Revenue", "Rs 1,200 Cr", "Rs 1,250 Cr", "beat"], ["Q4FY25", "EBITDA Margin", "8%", "8.2%", "met"], ["Q3FY25", "Revenue", "Rs 1,100 Cr", "Rs 1,080 Cr", "miss"], ["Q3FY25", "EBITDA Margin", "7.5%", "7.2%", "miss"], ["Q2FY25", "Revenue", "Rs 1,000 Cr", "Rs 1,035 Cr", "met"], ["Q2FY25", "EBITDA Margin", "8%", "8.0%", "met"], ["Q1FY25", "Revenue", "Rs 950 Cr", "Rs 915 Cr", "miss"], ["Q1FY25", "EBITDA Margin", "7.5%", "7.1%", "miss"], ["Q4FY24", "Revenue", "Rs 1,500 Cr", "Rs 1,580 Cr", "beat"], ["Q4FY24", "EBITDA Margin", "8%", "8.3%", "met"]]
+  },
+  // CAPACITE: Building/high-rise specialist; MMR dominant; data centers new vertical; FY25 PAT ₹204 Cr
+  CAPACITE: {
+    fa: [["FY27", "Rev Growth", "18–22%", "", ""], ["FY27", "EBITDA Margin", "16–17%", "", ""], ["FY27", "Order Inflow", "Rs 4,000 Cr+", "", ""]],
+    fq: [["Q4FY26", "Revenue", "Rs 700–750 Cr", "", ""], ["Q4FY26", "EBITDA Margin", "16–17%", "", ""]],
+    ha: [["FY25", "Rev Growth", "21.6%", "21.6% (₹2,407 Cr)", "met"], ["FY25", "EBITDA Margin", "18.2%", "18.2%", "met"], ["FY25", "PAT", "Rs 120 Cr+", "Rs 204 Cr", "beat"], ["FY24", "Rev Growth", "18%+", "17.5% (₹1,964 Cr)", "miss"], ["FY24", "EBITDA Margin", "18%", "18.5%", "met"], ["FY23", "Rev Growth", "15%+", "19.2%", "beat"], ["FY23", "EBITDA Margin", "17.5%", "17.9%", "met"]],
+    hq: [["Q3FY26", "Revenue", "Rs 640–660 Cr", "Rs 675 Cr", "beat"], ["Q3FY26", "EBITDA Margin", "16%", "16.0%", "met"], ["Q2FY26", "Revenue", "Rs 620–640 Cr", "Rs 646 Cr", "beat"], ["Q2FY26", "EBITDA Margin", "16.5%", "16.8%", "beat"], ["Q1FY26", "Revenue", "Rs 580–600 Cr", "Rs 599 Cr", "met"], ["Q1FY26", "EBITDA Margin", "18%", "18.6%", "met"], ["Q4FY25", "Revenue", "Rs 580 Cr", "Rs 563 Cr", "miss"], ["Q4FY25", "EBITDA Margin", "18%", "17.8%", "miss"], ["Q3FY25", "Revenue", "Rs 590 Cr", "Rs 601 Cr", "met"], ["Q3FY25", "EBITDA Margin", "15%", "15.3%", "met"], ["Q2FY25", "Revenue", "Rs 560 Cr", "Rs 578 Cr", "met"], ["Q2FY25", "EBITDA Margin", "15.5%", "16.2%", "beat"], ["Q1FY25", "Revenue", "Rs 540 Cr", "Rs 541 Cr", "met"], ["Q1FY25", "EBITDA Margin", "16%", "16.2%", "met"], ["Q4FY24", "Revenue", "Rs 500 Cr", "Rs 484 Cr", "miss"], ["Q4FY24", "EBITDA Margin", "15%", "14.8%", "miss"]]
   }
 };
 const _s = (t, i, j) => {
@@ -2303,6 +2363,14 @@ const ROEDATA = {
   CEMINDIA: {
     roe: [8.5, 12.8, 16.2, 17.2],
     roce: [9.8, 13.5, 17.0, 18.5]
+  },
+  HCC: {
+    roe: [null, null, 2.5, 2.8],
+    roce: [null, null, 3.2, 3.5]
+  },
+  CAPACITE: {
+    roe: [7.2, 8.5, 9.8, 11.0],
+    roce: [8.5, 10.2, 11.8, 13.2]
   }
 };
 
@@ -2334,7 +2402,9 @@ const PROVDATA = {
   JKUMAR: [5.5, 4.8, 4.2, 3.8],
   PSPPROJECT: [1.5, 1.2, 1.0, 0.8],
   VPRPL: [6.5, 5.8, 5.2, 4.5],
-  CEMINDIA: [3.5, 3.2, 2.8, 2.3]
+  CEMINDIA: [3.5, 3.2, 2.8, 2.3],
+  HCC: [null, null, 25.0, 18.0],
+  CAPACITE: [8.5, 6.2, 5.5, 4.8]
 };
 
 // EBITDA-to-CFO conversion % [FY22, FY23, FY24, FY25A]
@@ -2365,7 +2435,9 @@ const CFODATA = {
   JKUMAR: [58, 62, 65, 75],
   PSPPROJECT: [78, 82, 85, 88],
   VPRPL: [52, 55, 58, 62],
-  CEMINDIA: [55, 60, 65, 67]
+  CEMINDIA: [55, 60, 65, 67],
+  HCC: [null, null, 38, 42],
+  CAPACITE: [58, 62, 68, 72]
 };
 
 // ARBLEGAL is now COMPUTED dynamically from ARBAMT/NWFY25 in computeChecklist
@@ -2486,6 +2558,14 @@ const BWRSRC = {
   CEMINDIA: {
     src: "Q3FY26 concall Feb-5-26",
     note: "Heavy civil & EPC; marine, metro, tunnels, airports; selective complex project bidder"
+  },
+  HCC: {
+    src: "Q3FY26 results Feb-12-26",
+    note: "Hydro, nuclear, transport tunnels; bid pipeline ~₹40,000 Cr; selective complex projects; L1 ₹6,079 Cr"
+  },
+  CAPACITE: {
+    src: "Q3FY26 concall Feb-12-26",
+    note: "High-rise residential/commercial buildings; FY26 order bookings ₹3,909 Cr exceeded ₹3,500 Cr guidance"
   }
 };
 
@@ -2890,23 +2970,71 @@ function buildChecklistHTML(ticker) {
 }
 
 // Checklist Summary across all companies (matrix view)
-function buildChecklistMatrix() {
+// sortKey: "score"|"c1"|"c2"|"c3"|"c4"|"c5"|"c6"|"bucket"   sortDir: "desc"|"asc"
+function buildChecklistMatrix(sortKey, sortDir) {
+  const sk = sortKey || "bucket";
+  const sd = sortDir || "desc";
   const CNAMES = ["C1 OB/Rev", "C2 Guid%", "C3 RoE/RoCE", "C4 BidWin", "C5 Prov%", "C6 CFO%", "C7 Arb%"];
+  const CKEYS = ["c1", "c2", "c3", "c4", "c5", "c6", "c7"];
+  // Build scored array
+  const scored = COS.map(co => ({
+    co,
+    cl: computeChecklist(co.ticker)
+  }));
+  // Sort
+  let sorted;
+  if (sk === "bucket") {
+    // Group by bucket order, within bucket sort by score desc
+    const BO2 = ["Anchor", "T&D", "Water", "EPC & Asset Owners", "Others"];
+    sorted = scored.slice().sort((a, b) => {
+      const bi = BO2.indexOf(a.co.bucket) - BO2.indexOf(b.co.bucket);
+      if (bi !== 0) return bi;
+      return b.cl.scaled - a.cl.scaled;
+    });
+  } else if (sk === "score") {
+    sorted = scored.slice().sort((a, b) => sd === "asc" ? a.cl.scaled - b.cl.scaled : b.cl.scaled - a.cl.scaled);
+  } else {
+    const idx = CKEYS.indexOf(sk);
+    sorted = scored.slice().sort((a, b) => {
+      const va = idx >= 0 ? [a.cl.c1, a.cl.c2, a.cl.c3, a.cl.c4, a.cl.c5, a.cl.c6, a.cl.c7][idx]?.sc ?? -1 : -1;
+      const vb = idx >= 0 ? [b.cl.c1, b.cl.c2, b.cl.c3, b.cl.c4, b.cl.c5, b.cl.c6, b.cl.c7][idx]?.sc ?? -1 : -1;
+      return sd === "asc" ? va - vb : vb - va;
+    });
+  }
+  // Build sortable column headers
+  const sortHdr = (label, key, minW) => {
+    const active = sk === key;
+    const arrow = active ? sd === "asc" ? " ▲" : " ▼" : " ⇅";
+    const bg = active ? "#1e293b" : "transparent";
+    const fg = active ? "#fff" : "#64748b";
+    return `<th style="${thS};text-align:center;min-width:${minW || 50}px;cursor:pointer;background:${bg};color:${fg}" onclick="window.__clSort&&window.__clSort('${key}')">${label}${arrow}</th>`;
+  };
   const head = `<thead><tr>
-    <th style="${thS};min-width:100px;position:sticky;left:0;z-index:1">Company</th>
-    <th style="${thS};text-align:center;min-width:50px">Score</th>
-    ${CNAMES.map(n => `<th style="${thS};text-align:center;min-width:70px;font-size:8px">${n}</th>`).join("")}
+    <th style="${thS};min-width:105px;position:sticky;left:0;z-index:1;cursor:pointer" onclick="window.__clSort&&window.__clSort('bucket')">Company${sk === "bucket" ? " ▼" : ""}</th>
+    ${sortHdr("Score", "score")}
+    ${CNAMES.map((n, i) => sortHdr(n, CKEYS[i], 72)).join("")}
     <th style="${thS};text-align:center;min-width:55px">Raw/14</th>
   </tr></thead>`;
   let body = "<tbody>";
-  COS.forEach((co, i) => {
-    const cl = computeChecklist(co.ticker);
+  sorted.forEach(({
+    co,
+    cl
+  }, i) => {
     const sc = cl.scaled;
     const cc = sc >= 7 ? "#059669" : sc >= 5 ? "#d97706" : "#ef4444";
     const cbg = sc >= 7 ? "#d1fae5" : sc >= 5 ? "#fef3c7" : "#fee2e2";
     const crits = [cl.c1, cl.c2, cl.c3, cl.c4, cl.c5, cl.c6, cl.c7];
     const bc = BKT[co.bucket] || "#64748b";
-    body += `<tr style="background:${i % 2 ? "#fff" : "#f8fafc"}">
+    // Show bucket label when it changes (only in bucket sort mode)
+    let bucketLabel = "";
+    if (sk === "bucket") {
+      const prev = i > 0 ? sorted[i - 1].co.bucket : null;
+      if (co.bucket !== prev) {
+        const bcount = sorted.filter(s => s.co.bucket === co.bucket).length;
+        bucketLabel = `<tr><td colspan="10" style="padding:4px 8px;background:${bc}22;border-top:2px solid ${bc};font-size:9px;font-weight:800;color:${bc};text-transform:uppercase;letter-spacing:.04em">${co.bucket} · ${bcount} co.</td></tr>`;
+      }
+    }
+    body += bucketLabel + `<tr style="background:${i % 2 ? "#fff" : "#f8fafc"}">
       <td style="${tdS};font-weight:800;color:${bc};position:sticky;left:0;background:${i % 2 ? "#fff" : "#f8fafc"};border-right:1px solid #e2e8f0">${co.ticker}<div style="font-size:7px;color:#94a3b8;font-weight:400">${co.name.substring(0, 18)}</div></td>
       <td style="${tdS};text-align:center"><span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:22px;border-radius:6px;font-size:12px;font-weight:900;background:${cbg};color:${cc};font-family:monospace">${sc}</span></td>
       ${crits.map(c => {
@@ -2917,13 +3045,30 @@ function buildChecklistMatrix() {
       <td style="${tdS};text-align:center;font-family:monospace;font-weight:800;color:${cc}">${cl.total}</td>
     </tr>`;
   });
-  return `<div style="font-size:9px;color:#64748b;margin-bottom:6px">All 26 companies sorted by bucket. Click a company in the sidebar to view detailed underlying data.</div>` + tblWrap(head + body, 900);
+  return `<div style="font-size:9px;color:#64748b;margin-bottom:6px">All 28 companies · Click column headers to sort. Bucket grouping shown by default.</div>` + tblWrap(head + body, 940);
 }
 function ChecklistPanel({
   co
 }) {
   const [view, setView] = useState("detail");
-  const html = useMemo(() => view === "detail" ? buildChecklistHTML(co.ticker) : buildChecklistMatrix(), [co.ticker, view]);
+  const [clSort, setClSort] = useState({
+    key: "bucket",
+    dir: "desc"
+  });
+  // Expose sort handler to HTML onclick (inside HtmlPanel iframe boundary)
+  if (typeof window !== "undefined") {
+    window.__clSort = key => setClSort(prev => {
+      if (prev.key === key) return {
+        key,
+        dir: prev.dir === "desc" ? "asc" : "desc"
+      };
+      return {
+        key,
+        dir: "desc"
+      };
+    });
+  }
+  const html = useMemo(() => view === "detail" ? buildChecklistHTML(co.ticker) : buildChecklistMatrix(clSort.key, clSort.dir), [co.ticker, view, clSort.key, clSort.dir]);
   const bc = BKT[co?.bucket] || "#64748b";
   const cl = computeChecklist(co.ticker);
   const cc = cl.scaled >= 7 ? "#059669" : cl.scaled >= 5 ? "#d97706" : "#ef4444";
@@ -2972,9 +3117,38 @@ function ChecklistPanel({
   }, cl.scaled, "/10")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
-      gap: 3
+      gap: 3,
+      alignItems: "center"
     }
-  }, [["detail", "Company Detail"], ["matrix", "All Companies"]].map(([v, l]) => /*#__PURE__*/React.createElement("button", {
+  }, view === "matrix" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 2,
+      marginRight: 4
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 9,
+      color: "#94a3b8",
+      marginRight: 2
+    }
+  }, "Sort:"), [["bucket", "Bucket"], ["score", "Score"], ["c1", "C1"], ["c2", "C2"], ["c3", "C3"], ["c4", "C4"], ["c5", "C5"], ["c6", "C6"]].map(([k, l]) => /*#__PURE__*/React.createElement("button", {
+    key: k,
+    onClick: () => setClSort(prev => ({
+      key: k,
+      dir: prev.key === k ? prev.dir === "desc" ? "asc" : "desc" : "desc"
+    })),
+    style: {
+      padding: "2px 6px",
+      borderRadius: 4,
+      border: "none",
+      cursor: "pointer",
+      fontSize: 9,
+      fontWeight: 700,
+      background: clSort.key === k ? "#0f172a" : "#e2e8f0",
+      color: clSort.key === k ? "#fff" : "#64748b"
+    }
+  }, l, clSort.key === k ? clSort.dir === "asc" ? "▲" : "▼" : ""))), [["detail", "Company Detail"], ["matrix", "All Companies"]].map(([v, l]) => /*#__PURE__*/React.createElement("button", {
     key: v,
     onClick: () => setView(v),
     style: {
@@ -3055,6 +3229,10 @@ const OBAMT = {
   VPRPL: 9000 // 🟡 ESTIMATED
   ,
   CEMINDIA: 21879 // ✅ VERIFIED: OB Q3FY26 Dec-25 ₹21,879 Cr (BSE Feb-5-26); +ve order momentum
+  ,
+  HCC: 9773 // ✅ VERIFIED: OB Q3FY26 Dec-25 ~₹9,773 Cr (BSE filing Feb-12-26; down from ₹11,852 Cr Mar-25)
+  ,
+  CAPACITE: 12000 // ✅ VERIFIED: OB Dec-25 ~₹12,000 Cr; FY26 order bookings ₹3,909 Cr (exceeding ₹3,500 Cr guidance): OB Q3FY26 Dec-25 ₹21,879 Cr (BSE Feb-5-26); +ve order momentum
 };
 
 // TTM Revenue (₹ Cr) — 9MFY26 annualised or FY25A latest available
@@ -3112,6 +3290,10 @@ const TTMREV = {
   VPRPL: 2500 // 🟡 ESTIMATED
   ,
   CEMINDIA: 9450 // ✅ VERIFIED: 9MFY26=₹7,087 Cr (Q3=₹2,315 Cr); annualised ~₹9,450 Cr (BSE Feb-5-26)
+  ,
+  HCC: 3844 // ✅ VERIFIED: 9MFY26=₹2,843 Cr (Q3=₹961 Cr); annualised ~₹3,844 Cr (BSE Feb-12-26)
+  ,
+  CAPACITE: 2582 // ✅ VERIFIED: 9MFY26=₹1,930 Cr (Q3=₹675 Cr +14% YoY); annualised ~₹2,582 Cr (Feb-12-26): 9MFY26=₹7,087 Cr (Q3=₹2,315 Cr); annualised ~₹9,450 Cr (BSE Feb-5-26)
 };
 
 // ── SINGLE SOURCE OF TRUTH: Recompute COS.ob from OBAMT/TTMREV ──────────────
@@ -3151,7 +3333,9 @@ const PROVAMT = {
   JKUMAR: 82,
   PSPPROJECT: 18,
   VPRPL: 48,
-  CEMINDIA: 85
+  CEMINDIA: 85,
+  HCC: null,
+  CAPACITE: 9
 };
 
 // Net Profit FY25A (₹ Cr) — denominator for provisions %
@@ -3182,7 +3366,9 @@ const PATFY25 = {
   JKUMAR: 2140,
   PSPPROJECT: 2240,
   VPRPL: 1060,
-  CEMINDIA: 3730
+  CEMINDIA: 3730,
+  HCC: 42,
+  CAPACITE: 204
 };
 
 // Arbitration & legal claims (₹ Cr, FY25A)
@@ -3217,7 +3403,9 @@ const ARBAMT = {
   JKUMAR: null,
   PSPPROJECT: null,
   VPRPL: null,
-  CEMINDIA: null
+  CEMINDIA: null,
+  HCC: null,
+  CAPACITE: null
 };
 
 // Net Worth FY25A (₹ Cr) — denominator for arb % (FY25 audited annual report basis)
@@ -3275,7 +3463,11 @@ const NWFY25 = {
   // 🟡 ESTIMATED
   VPRPL: 2200,
   // 🟡 ESTIMATED
-  CEMINDIA: 2159 // ✅ VERIFIED: Q3FY26 consolidated Net Worth = ₹2,159 Cr (BSE Feb-5-26)
+  CEMINDIA: 2159,
+  // ✅ VERIFIED: Q3FY26 consolidated Net Worth = ₹2,159 Cr (BSE Feb-5-26)
+  HCC: 1850,
+  // 🟡 ESTIMATED: Rights issue Dec-25 raised ₹1,000 Cr; NW improved; D/E ~0.79x FY25
+  CAPACITE: 1900 // 🟡 ESTIMATED: Gross debt ₹464 Cr at 0.25x D/E implies NW ~₹1,900 Cr
 };
 
 // EBITDA FY25A (₹ Cr)
@@ -3306,7 +3498,9 @@ const EBITDAFY25 = {
   JKUMAR: 640,
   PSPPROJECT: 377,
   VPRPL: 235,
-  CEMINDIA: 833
+  CEMINDIA: 833,
+  HCC: 369,
+  CAPACITE: 437
 };
 
 // CFO FY25A (₹ Cr)
@@ -3337,7 +3531,9 @@ const CFOAMT = {
   JKUMAR: 480,
   PSPPROJECT: 332,
   VPRPL: 146,
-  CEMINDIA: 562
+  CEMINDIA: 562,
+  HCC: 155,
+  CAPACITE: 315
 };
 
 // ── Pre-compute anomalies NOW — all data (OBAMT,TTMREV,ARBAMT,NWFY25,PROVDATA,CFODATA) defined ─
@@ -3975,6 +4171,66 @@ const DATASRC = {
       status: "V",
       note: "Consolidated Net Worth ₹2,159 Cr; subsidiary of Renew Exim DMCC (Adani group ~67%)"
     }
+  },
+  HCC: {
+    ob: {
+      val: 9773,
+      src: "BSE filing Feb-12-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "OB declined from ₹11,852 Cr (Mar-25); bid pipeline ₹40,000 Cr; L1 ₹6,079 Cr"
+    },
+    rev: {
+      val: 3844,
+      src: "BSE filing Feb-12-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9MFY26=₹2,843 Cr (Q3=₹961 Cr); revenue declining YoY"
+    },
+    nd: {
+      val: 3200,
+      src: "FY25 Annual Report / broker est",
+      period: "FY25",
+      status: "E",
+      note: "Debt ₹3,500 Cr; rights issue ₹1,000 Cr raised Dec-25; D/E 0.79x FY25"
+    },
+    nw: {
+      val: 1850,
+      src: "FY25 AR (est post-rights issue)",
+      period: "Mar-25",
+      status: "E",
+      note: "Rights issue improved NW; promoter pledge 58% is key risk"
+    }
+  },
+  CAPACITE: {
+    ob: {
+      val: 12000,
+      src: "Q3FY26 concall Feb-12-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Order bookings ₹3,909 Cr in FY26 (exceeded ₹3,500 Cr guidance); building/high-rise focus"
+    },
+    rev: {
+      val: 2582,
+      src: "BSE/Concall Feb-12-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9MFY26=₹1,930 Cr +13% YoY; Q3=₹675 Cr (record high); FY25=₹2,407 Cr"
+    },
+    nd: {
+      val: 149,
+      src: "Q3FY26 concall Feb-12-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Gross debt ₹464 Cr; Net D/E 0.12x; interest rate reduced from 12.5% to 9.65%"
+    },
+    nw: {
+      val: 1900,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: "Gross D/E 0.25x; net D/E 0.12x"
+    }
   }
 };
 // Fallback for companies without detailed DATASRC
@@ -4106,6 +4362,14 @@ const BSE_LINKS = {
   CEMINDIA: {
     bse: "https://www.bseindia.com/stock-share-price/cemindia-projects-ltd/cempro/509496/",
     q3ppt: "https://www.cemindia.co.in/investor-relations/"
+  },
+  HCC: {
+    bse: "https://www.bseindia.com/stock-share-price/hindustan-construction-co-ltd/hcc/500185/",
+    q3ppt: "https://www.hccindia.com/investors"
+  },
+  CAPACITE: {
+    bse: "https://www.bseindia.com/stock-share-price/capacite-infraprojects-ltd/capacite/540710/",
+    q3ppt: "https://www.capacite.in/investor-relations"
   }
 };
 function buildUnderlyingHTML(ticker) {
