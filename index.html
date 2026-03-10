@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>EPC Sector Dashboard · India Capital Markets</title>
 <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9}::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:#f1f5f9}::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}</style>
 </head><body><div id="root"></div>
@@ -3370,162 +3369,111 @@ const DEFDSRC = {
   }
 };
 
-// DATA_STATUS merged into DATASRC below
-const DATA_STATUS_REMOVED = {
+// ── BSE filing links for direct verification (open to fetch latest PPT/results) ──
+const BSE_LINKS = {
   LT: {
-    ob: {
-      status: "verified",
-      src: "BSE Jan-28-26 concall",
-      note: "₹7.33L Cr +30% YoY Dec-25"
-    },
-    rev: {
-      status: "verified",
-      src: "BSE Jan-28-26 results",
-      note: "9MFY26=₹2.03L Cr; Q3=₹71,450 Cr"
-    },
-    gd: {
-      status: "estimated",
-      src: "FY25A BS",
-      note: "Q3FY26 BS not yet public; use with caution"
-    },
-    nw: {
-      status: "estimated",
-      src: "FY25A consolidate",
-      note: "Large conglomerate; approx"
-    }
+    bse: "https://www.bseindia.com/stock-share-price/larsen--toubro-ltd/lt/500510/",
+    q3ppt: "https://investors.larsentoubro.com/Quarterly-Results-Archives.aspx"
   },
   KPIL: {
-    ob: {
-      status: "verified",
-      src: "BSE Feb-4-26 PPT",
-      note: "₹63,287 Cr; +L1 ₹7,000 Cr"
-    },
-    rev: {
-      status: "verified",
-      src: "BSE Feb-4-26 results",
-      note: "9MFY26=₹19,365 Cr +27% YoY"
-    },
-    gd: {
-      status: "verified",
-      src: "Q3FY26 concall",
-      note: "Net debt ₹2,240 Cr (down 29% QoQ)"
-    },
-    nw: {
-      status: "estimated",
-      src: "FY25A Annual Report",
-      note: "Standalone NW ~₹8,900 Cr"
-    }
+    bse: "https://www.bseindia.com/stock-share-price/kalpataru-projects-intl-ltd/kpil/522287/",
+    q3ppt: "https://www.kalpataruprojects.com/investor-relations"
   },
   KEC: {
-    ob: {
-      status: "verified",
-      src: "BSE Jan-31-26 release",
-      note: "YTD OB ₹36,725 Cr + L1 ₹4,500 Cr"
-    },
-    rev: {
-      status: "verified",
-      src: "BSE Jan-31-26 results",
-      note: "Q3 rev ₹6,001 Cr +12% YoY"
-    },
-    gd: {
-      status: "verified",
-      src: "Q3FY26 results",
-      note: "Net debt incl acceptances ₹6,806 Cr ⚠ HIGH"
-    },
-    nw: {
-      status: "verified",
-      src: "MarketsMojo Q3FY26",
-      note: "Shareholder funds ₹5,347 Cr"
-    }
+    bse: "https://www.bseindia.com/stock-share-price/kec-international-ltd/kec/532714/",
+    q3ppt: "https://www.kecrpg.com/quarterly-results"
   },
   NCC: {
-    ob: {
-      status: "verified",
-      src: "BSE Feb-6-26 concall",
-      note: "₹79,571 Cr +43% YoY Dec-25"
-    },
-    rev: {
-      status: "verified",
-      src: "BSE Feb-6-26 results",
-      note: "Q3=₹4,900 Cr -9% YoY; 9M=₹14,693 Cr"
-    },
-    gd: {
-      status: "verified",
-      src: "Q3FY26 concall",
-      note: "Net debt ₹3,695 Cr; D/E=0.40x ⚠ Rising"
-    },
-    nw: {
-      status: "estimated",
-      src: "FY25A+D/E proxy",
-      note: "NW ~₹7,500 Cr est. from D/E=0.4x"
-    }
+    bse: "https://www.bseindia.com/stock-share-price/ncc-ltd/ncc/500294/",
+    q3ppt: "https://ncclimited.com/quarterly-results.html"
   },
   GRINFRA: {
-    ob: {
-      status: "verified",
-      src: "BSE Feb-10-26 concall",
-      note: "~₹20,250 Cr excl O&G; incl L1=₹24,965 Cr"
-    },
-    rev: {
-      status: "verified",
-      src: "BSE Feb-10-26 results",
-      note: "Q3=₹2,308 Cr +36% YoY; 9M=₹5,898 Cr"
-    },
-    gd: {
-      status: "verified",
-      src: "Q3FY26 concall",
-      note: "D/E=0.03x; gross debt ~₹255 Cr (net cash)"
-    },
-    nw: {
-      status: "verified",
-      src: "MarketsMojo FY25",
-      note: "Shareholder funds ₹8,491 Cr"
-    }
+    bse: "https://www.bseindia.com/stock-share-price/g-r-infraprojects-ltd/grinfra/543317/",
+    q3ppt: "https://www.grinfra.com/annual-report-and-results/"
   },
   KNRCON: {
-    ob: {
-      status: "verified",
-      src: "BSE Feb-6-26 PPT",
-      note: "₹8,849 Cr ⚠ vs prev estimate ₹17,400 Cr — BIG GAP"
-    },
-    rev: {
-      status: "verified",
-      src: "BSE Feb-6-26 results",
-      note: "Q3 consol ₹743 Cr -12% YoY; 9M=₹2,002 Cr"
-    },
-    gd: {
-      status: "verified",
-      src: "Q3FY26 concall",
-      note: "Consol debt ₹2,443 Cr; ₹2,100 Cr in SPVs being sold"
-    },
-    nw: {
-      status: "estimated",
-      src: "FY25A Annual Report",
-      note: "Standalone NW crossed ₹4,000 Cr milestone"
-    }
-  }
-};
-// Default status for unverified tickers
-const DEFAULT_STATUS = {
-  ob: {
-    status: "estimated",
-    src: "FY25A proxy",
-    note: "No Q3FY26 data found — needs verification"
+    bse: "https://www.bseindia.com/stock-share-price/knr-constructions-ltd/knrcon/532942/",
+    q3ppt: "https://www.knrconstruction.com/investors"
   },
-  rev: {
-    status: "estimated",
-    src: "FY25A proxy",
-    note: "No Q3FY26 data found — needs verification"
+  PNCINFRA: {
+    bse: "https://www.bseindia.com/stock-share-price/pnc-infratech-ltd/pncinfra/539150/",
+    q3ppt: "https://www.pncinfratech.com/financials.html"
   },
-  gd: {
-    status: "estimated",
-    src: "FY25A BS",
-    note: "No Q3FY26 data found — needs verification"
+  HGINFRA: {
+    bse: "https://www.bseindia.com/stock-share-price/h-g-infra-engineering-ltd/hginfra/541019/",
+    q3ppt: "https://www.hginfra.com/announcements.php"
   },
-  nw: {
-    status: "estimated",
-    src: "FY25A proxy",
-    note: "No Q3FY26 data found — needs verification"
+  ASHOKA: {
+    bse: "https://www.bseindia.com/stock-share-price/ashoka-buildcon-ltd/ashoka/533271/",
+    q3ppt: "https://www.ashokabuildcon.com/investors"
+  },
+  CEIGALL: {
+    bse: "https://www.bseindia.com/stock-share-price/ceigall-india-ltd/ceigall/544216/",
+    q3ppt: "https://www.ceigallindia.com/investors"
+  },
+  DBL: {
+    bse: "https://www.bseindia.com/stock-share-price/dilip-buildcon-ltd/dbl/540257/",
+    q3ppt: "https://www.dilipbuildcon.com/investor-relations"
+  },
+  AFCONS: {
+    bse: "https://www.bseindia.com/stock-share-price/afcons-infrastructure-ltd/afcons/544225/",
+    q3ppt: "https://www.afcons.com/investor-relations"
+  },
+  SKIPPER: {
+    bse: "https://www.bseindia.com/stock-share-price/skipper-ltd/skipper/538562/",
+    q3ppt: "https://www.skipperlimited.com/investor-relations"
+  },
+  TRANSRAIL: {
+    bse: "https://www.bseindia.com/stock-share-price/transrail-lighting-ltd/transrail/544347/",
+    q3ppt: "https://www.transraillighting.com/investor-relations"
+  },
+  WABAG: {
+    bse: "https://www.bseindia.com/stock-share-price/va-tech-wabag-ltd/wabag/533269/",
+    q3ppt: "https://www.vatechWABAG.com/investors"
+  },
+  IONEXCHANG: {
+    bse: "https://www.bseindia.com/stock-share-price/ion-exchange-india-ltd/ionexchang/500214/",
+    q3ppt: "https://www.ionindia.com/investors"
+  },
+  RAMKY: {
+    bse: "https://www.bseindia.com/stock-share-price/ramky-infrastructure-ltd/ramky/533294/",
+    q3ppt: "https://www.ramkyinfrastructure.com/investors"
+  },
+  EMS: {
+    bse: "https://www.bseindia.com/stock-share-price/ems-ltd/ems/543928/",
+    q3ppt: "https://www.emsltd.co.in/investors"
+  },
+  SPMLINFRA: {
+    bse: "https://www.bseindia.com/stock-share-price/spml-infra-ltd/spmlinfra/500402/",
+    q3ppt: "https://www.spmlinfra.com"
+  },
+  WELSPUNENT: {
+    bse: "https://www.bseindia.com/stock-share-price/welspun-enterprises-ltd/welspunent/532765/",
+    q3ppt: "https://www.welspun.com/businesses/infrastructure/investor-relations"
+  },
+  TECHNO: {
+    bse: "https://www.bseindia.com/stock-share-price/techno-electric-engineering-co-ltd/techno/542141/",
+    q3ppt: "https://www.techno-electric.com/investors"
+  },
+  POWERMECH: {
+    bse: "https://www.bseindia.com/stock-share-price/powermech-projects-ltd/powermech/539289/",
+    q3ppt: "https://www.powermechprojects.com/investors"
+  },
+  AHLUCONT: {
+    bse: "https://www.bseindia.com/stock-share-price/ahluwalia-contracts-india-ltd/ahlucont/532811/",
+    q3ppt: "https://www.ahluwaliacontracts.com/investors"
+  },
+  JKUMAR: {
+    bse: "https://www.bseindia.com/stock-share-price/j-kumar-infraprojects-ltd/jkumar/532940/",
+    q3ppt: "https://www.jkumar.com/investors"
+  },
+  PSPPROJECT: {
+    bse: "https://www.bseindia.com/stock-share-price/psp-projects-ltd/pspproject/540544/",
+    q3ppt: "https://www.pspltd.in/investors"
+  },
+  VPRPL: {
+    bse: "https://www.bseindia.com/stock-share-price/vp-road-projects-ltd/vprpl/543990/",
+    q3ppt: "https://www.vprpl.com/investor-relations"
   }
 };
 function buildUnderlyingHTML(ticker) {
@@ -3539,52 +3487,94 @@ function buildUnderlyingHTML(ticker) {
   const nw = NWFY25[ticker];
   const ebitda = EBITDAFY25[ticker];
   const cfo = CFOAMT[ticker];
+  const ds = DATASRC[ticker] || DEFDSRC;
+  const bsl = BSE_LINKS[ticker] || {
+    bse: "https://www.bseindia.com",
+    q3ppt: "https://www.bseindia.com"
+  };
   const fmt = v => v != null ? "₹" + fa(v) + " Cr" : "—";
   const pct = (n, d) => n != null && d != null && d > 0 ? +(n / d * 100).toFixed(1) + "%" : "—";
-  const cl = computeChecklist(ticker);
-  let html = ``;
 
-  // ── Data Verification Header ────────────────────────────────────────────────
-  const ds = DATASRC[ticker] || DEFDSRC;
-  const verBdg = (s, period, note, src) => {
-    const isV = s === "V";
-    return `<span style="display:inline-flex;align-items:center;gap:3px;padding:2px 6px;border-radius:4px;font-size:8px;font-weight:700;background:${isV ? "#d1fae5" : "#fef3c7"};color:${isV ? "#065f46" : "#92400e"};border:1px solid ${isV ? "#6ee7b7" : "#fde68a"}">${isV ? "✅ Verified" : "🟡 Estimated"}</span>${period ? `<span style="font-size:7.5px;color:#64748b;margin-left:4px">${period}</span>` : ""}${note && !isV ? `<span style="font-size:7px;color:#d97706;margin-left:4px">${note}</span>` : ""}`;
+  // ── Badge helpers ────────────────────────────────────────────────────────────
+  const statusBadge = (s, val, period, src, note) => {
+    if (s === "V") return `<span style="display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:4px;font-size:7.5px;font-weight:800;background:#d1fae5;color:#065f46;border:1px solid #6ee7b7">✅ VERIFIED — ${period || ""}</span><span style="font-size:7px;color:#475569;margin-left:4px">${src || ""}</span>`;
+    if (val == null) return `<span style="display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:4px;font-size:7.5px;font-weight:800;background:#fef2f2;color:#991b1b;border:1px solid #fca5a5">⚠️ DATA PENDING — click BSE link to verify</span>`;
+    return `<span style="display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:4px;font-size:7.5px;font-weight:800;background:#fef3c7;color:#92400e;border:1px solid #fde68a">🟡 ESTIMATED — ${period || ""}</span><span style="font-size:7px;color:#92400e;margin-left:3px">${note || ""}</span>`;
   };
-  const gapWarn = (field, dashVal, srcVal) => {
+
+  // Gap warning: shows only when dash value differs >15% from verified src value
+  const gapRow = (label, dashVal, srcVal, srcName) => {
     if (!srcVal || !dashVal) return "";
     const diff = Math.abs(dashVal - srcVal) / srcVal * 100;
-    if (diff > 15) return `<div style="margin-top:6px;background:#fef2f2;border:1px solid #fca5a5;border-radius:5px;padding:5px 8px;font-size:8px;color:#991b1b">⚠️ <b>Data Gap Detected</b>: Dashboard value (₹${fa(dashVal)} Cr) differs from verified source (₹${fa(srcVal)} Cr) by <b>${diff.toFixed(0)}%</b>. Use verified source value for investment decisions.</div>`;
-    return "";
+    if (diff < 5) return "";
+    const dir = dashVal > srcVal ? "higher" : "lower";
+    const clr = diff > 30 ? "#7f1d1d" : diff > 15 ? "#991b1b" : "#b45309";
+    const bg = diff > 30 ? "#fef2f2" : diff > 15 ? "#fff7ed" : "#fffbeb";
+    const bdr = diff > 30 ? "#fca5a5" : diff > 15 ? "#fed7aa" : "#fde68a";
+    const icon = diff > 30 ? "🚨" : diff > 15 ? "⚠️" : "⚡";
+    return `<div style="background:${bg};border:1.5px solid ${bdr};border-radius:6px;padding:5px 9px;margin-top:6px;font-size:8px;color:${clr}">
+      ${icon} <b>Gap Detected: ${label}</b> — Dashboard shows <b>₹${fa(dashVal)} Cr</b> but ${srcName} reports <b>₹${fa(srcVal)} Cr</b> (${diff.toFixed(0)}% ${dir}). Use verified source value for investment decisions.
+    </div>`;
   };
-  html += `<div style="background:#0f172a;border-radius:8px;padding:8px 12px;margin-bottom:10px">
-    <div style="font-size:9px;font-weight:800;color:#f1f5f9;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">🔍 Data Verification Status — ${ticker}</div>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px">
-      ${[["Order Book", ds.ob?.status || "E", ds.ob?.period || "", ds.ob?.note || "", ds.ob?.src || ""], ["TTM Revenue", ds.rev?.status || "E", ds.rev?.period || "", ds.rev?.note || "", ds.rev?.src || ""], ["Net Debt", ds.nd?.status || "E", ds.nd?.period || "", ds.nd?.note || "", ds.nd?.src || ""], ["Net Worth", ds.nw?.status || "E", ds.nw?.period || "", ds.nw?.note || "", ds.nw?.src || ""]].map(([l, s, period, note, src]) => `<div style="background:#1e293b;border-radius:5px;padding:5px 8px">
-        <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase;margin-bottom:2px">${l}</div>
-        <div style="display:flex;align-items:center;gap:3px;flex-wrap:wrap">${verBdg(s, period, note, src)}</div>
-        ${src ? `<div style="font-size:7px;color:#475569;margin-top:2px">Source: ${src}</div>` : ""}
-      </div>`).join("")}
+
+  // Pending banner for a whole metric section
+  const pendingBanner = (metric, bseUrl, pptUrl) => `<div style="background:#fef2f2;border:1.5px dashed #fca5a5;border-radius:7px;padding:8px 12px;margin-bottom:4px">
+      <div style="font-size:8.5px;font-weight:800;color:#991b1b;margin-bottom:4px">⚠️ DATA PENDING — ${metric}</div>
+      <div style="font-size:7.5px;color:#7f1d1d;margin-bottom:5px">Current value is an estimate from FY25A. Q3FY26 (Dec-25) data has not been verified against BSE filings or investor presentation. Do not use for investment decisions without verification.</div>
+      <div style="display:flex;gap:6px">
+        <a href="${bseUrl}" target="_blank" style="font-size:7.5px;font-weight:700;color:#fff;text-decoration:none;background:#dc2626;padding:2px 9px;border-radius:4px">🔗 BSE Filings</a>
+        <a href="${pptUrl}" target="_blank" style="font-size:7.5px;font-weight:700;color:#fff;text-decoration:none;background:#7c3aed;padding:2px 9px;border-radius:4px">📊 Investor PPT</a>
+      </div>
+    </div>`;
+  let html = "";
+
+  // ── Master verification header ────────────────────────────────────────────────
+  const verifiedCount = ["ob", "rev", "nd", "nw"].filter(f => ds[f]?.status === "V").length;
+  const headerBg = verifiedCount === 4 ? "#0f172a" : verifiedCount >= 2 ? "#1e3a5f" : "#7f1d1d";
+  html += `<div style="background:${headerBg};border-radius:10px;padding:9px 13px;margin-bottom:11px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px">
+      <div style="font-size:9px;font-weight:800;color:#f1f5f9;text-transform:uppercase;letter-spacing:.06em">🔍 Data Verification Status — ${ticker}</div>
+      <div style="display:flex;align-items:center;gap:5px">
+        <span style="font-size:8px;font-weight:800;color:${verifiedCount === 4 ? "#6ee7b7" : verifiedCount >= 2 ? "#93c5fd" : "#fca5a5"}">${verifiedCount}/4 metrics verified</span>
+        <a href="${bsl.bse}" target="_blank" style="font-size:7.5px;font-weight:700;color:#0f172a;text-decoration:none;background:#f1f5f9;padding:2px 7px;border-radius:4px">BSE ↗</a>
+        <a href="${bsl.q3ppt}" target="_blank" style="font-size:7.5px;font-weight:700;color:#0f172a;text-decoration:none;background:#fbbf24;padding:2px 7px;border-radius:4px">Q3 PPT ↗</a>
+      </div>
     </div>
-    <div style="margin-top:6px;font-size:7.5px;color:#475569">✅ Verified = Cross-checked against Q3FY26 concall transcript + investor presentation &nbsp;|&nbsp; 🟡 Estimated = FY25A basis or H1FY26 annualised — use with caution</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px">
+      ${[["📦 Order Book", ds.ob?.status, ds.ob?.val, ds.ob?.period, ds.ob?.src, ds.ob?.note], ["📈 TTM Revenue", ds.rev?.status, ds.rev?.val, ds.rev?.period, ds.rev?.src, ds.rev?.note], ["💳 Net Debt", ds.nd?.status, ds.nd?.val, ds.nd?.period, ds.nd?.src, ds.nd?.note], ["🏦 Net Worth", ds.nw?.status, ds.nw?.val, ds.nw?.period, ds.nw?.src, ds.nw?.note]].map(([l, s, val, period, src, note]) => {
+    const isV = s === "V";
+    const isPending = !val && s !== "V";
+    return `<div style="background:${isV ? "#0d2b1a" : isPending ? "#3b0a0a" : "#2a2000"};border:1px solid ${isV ? "#166534" : isPending ? "#7f1d1d" : "#78350f"};border-radius:6px;padding:6px 8px">
+          <div style="font-size:7.5px;color:#94a3b8;font-weight:700;margin-bottom:3px">${l}</div>
+          ${isV ? `<div style="font-size:8px;font-weight:800;color:#4ade80">✅ VERIFIED</div><div style="font-size:7px;color:#6ee7b7">${period || src || ""}</div>${note ? `<div style="font-size:7px;color:#4ade80;margin-top:1px">${note}</div>` : ""}` : isPending ? `<div style="font-size:8px;font-weight:800;color:#f87171">⚠️ DATA PENDING</div><div style="font-size:7px;color:#fca5a5">Verify via BSE filing ↗</div>` : `<div style="font-size:8px;font-weight:800;color:#fbbf24">🟡 ESTIMATED</div><div style="font-size:7px;color:#fde68a">${period || ""}</div>${note ? `<div style="font-size:7px;color:#fcd34d;margin-top:1px">${note}</div>` : ""}`}
+        </div>`;
+  }).join("")}
+    </div>
+    <div style="margin-top:6px;font-size:7px;color:#475569">✅ Verified = Cross-checked Q3FY26 concall + investor PPT &nbsp;|&nbsp; 🟡 Estimated = FY25A basis, use with caution &nbsp;|&nbsp; ⚠️ Data Pending = Not yet verified — click BSE/PPT to fetch latest</div>
   </div>`;
 
-  // ── Section 1: Order Book & Revenue ────────────────────────────────────────
+  // ── C1: Order Book & Revenue ──────────────────────────────────────────────────
   html += `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 13px;margin-bottom:10px">
-    <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">📦 C1 — Order Book vs TTM Revenue (Latest Available)</div>
-    ${ds.ob?.status === "V" ? "" : `<div style="background:#fef3c7;border:1px solid #fde68a;border-radius:5px;padding:4px 8px;font-size:8px;color:#92400e;margin-bottom:6px">🟡 Order Book: Estimated — Q3FY26 verified data not available. Using latest estimate. Verify via BSE filings.</div>`}
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px">
-      ${[["Order Book (₹ Cr)", fmt(ob), "#1a56db", ds.ob?.period ? "As of " + ds.ob.period : "Unexecuted order backlog"], ["TTM Revenue (₹ Cr)", fmt(rev), "#0891b2", ds.rev?.period || "Trailing 12-month revenue"], ["OB / TTM Rev", ob && rev ? (ob / rev).toFixed(2) + "x" : "—", ob && rev && ob / rev >= 2.5 ? "#059669" : "#ef4444", "Threshold: ≥2.5x to qualify"]].map(([l, v, c, note]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px 11px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px">
+      <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em">📦 C1 — Order Book vs TTM Revenue</div>
+      <div>${statusBadge(ds.ob?.status, ds.ob?.val, ds.ob?.period, ds.ob?.src, ds.ob?.note)}</div>
+    </div>
+    ${ds.ob?.status !== "V" ? pendingBanner("Order Book (C1 key input)", bsl.bse, bsl.q3ppt) : ""}
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:6px">
+      ${[["Order Book (₹ Cr)", fmt(ob), "#1a56db", ds.ob?.period ? `As of ${ds.ob.period}` : "Latest available"], ["TTM Revenue (₹ Cr)", fmt(rev), "#0891b2", ds.rev?.period || "Trailing 12-month"], ["OB / TTM Rev", ob && rev ? (ob / rev).toFixed(2) + "x" : "—", ob && rev && ob / rev >= 2.5 ? "#059669" : "#ef4444", "Threshold: ≥2.5x to pass"]].map(([l, v, c, note]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px 11px">
         <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase">${l}</div>
         <div style="font-size:14px;font-weight:900;color:${c};font-family:monospace;margin-top:2px">${v}</div>
-        <div style="font-size:7px;color:#94a3b8;margin-top:3px">${note}</div>
+        <div style="font-size:7px;color:#94a3b8;margin-top:2px">${note}</div>
       </div>`).join("")}
     </div>
-    ${gapWarn("OB", OBAMT[ticker], ds.ob?.val)}
+    ${gapRow("Order Book", OBAMT[ticker], ds.ob?.val, ds.ob?.src || "verified source")}
+    ${gapRow("TTM Revenue", TTMREV[ticker], ds.rev?.val, ds.rev?.src || "verified source")}
   </div>`;
 
-  // ── Section 2: Bid-to-Win ────────────────────────────────────────────────
+  // ── C4: Bid-to-Win ────────────────────────────────────────────────────────────
   html += `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 13px;margin-bottom:10px">
-    <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">🎯 C4 — Bid-to-Win Ratio (Trailing 12 months)</div>
+    <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">🎯 C4 — Bid-to-Win Ratio (Trailing 12 months)</div>
+    <div style="background:#fef3c7;border:1px solid #fde68a;border-radius:5px;padding:4px 8px;font-size:7.5px;color:#92400e;margin-bottom:7px">🟡 Bid-to-Win data is from management commentary in concalls — verify per latest Q3FY26 call. Not separately disclosed in standard BSE filings.</div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
       ${[["Bids Submitted (₹ Cr)", co.bs ? fi(co.bs) + " Cr" : "—", "#475569"], ["Orders Won (₹ Cr)", co.bw ? fi(co.bw) + " Cr" : "—", "#0891b2"], ["Bid-to-Win %", co.bwr != null ? co.bwr + "%" : "—", co.bwr >= 30 ? "#059669" : co.bwr >= 20 ? "#d97706" : "#ef4444"], ["Subcont. %", co.sub != null ? co.sub + "%" : "—", "#64748b"]].map(([l, v, c]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px 11px;text-align:center">
         <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase">${l}</div>
@@ -3593,65 +3583,68 @@ function buildUnderlyingHTML(ticker) {
     </div>
   </div>`;
 
-  // ── Section 3: Provisions & Write-offs ──────────────────────────────────
+  // ── C5: Provisions & Write-offs ───────────────────────────────────────────────
   html += `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 13px;margin-bottom:10px">
-    <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">🔴 C5 — Provisions & Write-offs (FY25A)</div>
+    <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">🔴 C5 — Provisions & Write-offs (FY25A)</div>
+    <div style="background:#fef3c7;border:1px solid #fde68a;border-radius:5px;padding:4px 8px;font-size:7.5px;color:#92400e;margin-bottom:7px">🟡 All provisions data estimated from FY25A Annual Reports. Verify Note on "Provisions & Contingencies" in FY25 AR. Q3FY26 P&L provisions to be confirmed when Q3 audited filings are available.</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:6px">
-      ${[["Provisions/Write-offs (₹ Cr)", fmt(prov), "#ef4444", "From P&L — Credit loss provisions, bad debt write-offs, impairment"], ["Net Profit (₹ Cr)", fmt(pat), "#1e293b", "FY25A reported PAT"], ["Provisions as % of NP", pct(prov, pat), prov && pat && prov / pat * 100 < 5 ? "#059669" : prov && pat && prov / pat * 100 < 10 ? "#d97706" : "#ef4444", "Threshold: <5% = Pass"]].map(([l, v, c, note]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px 11px">
+      ${[["Provisions/Write-offs (₹ Cr)", fmt(prov), "#ef4444", "From P&L — bad debt, impairment, write-offs"], ["Net Profit FY25A (₹ Cr)", fmt(pat), "#1e293b", "Denominator for % calculation"], ["Provisions as % NP", pct(prov, pat), prov && pat && prov / pat * 100 < 5 ? "#059669" : prov && pat && prov / pat * 100 < 10 ? "#d97706" : "#ef4444", "C5 threshold: <5%=Pass, <10%=Partial"]].map(([l, v, c, note]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px 11px">
         <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase">${l}</div>
         <div style="font-size:14px;font-weight:900;color:${c};font-family:monospace;margin-top:2px">${v}</div>
-        <div style="font-size:7px;color:#94a3b8;margin-top:3px">${note}</div>
+        <div style="font-size:7px;color:#94a3b8;margin-top:2px">${note}</div>
       </div>`).join("")}
     </div>
     ${(() => {
     const provH = PROVDATA[ticker] || [];
-    const patH = [null, null, null, pat];
     const FYS = ["FY22", "FY23", "FY24", "FY25A"];
     const h = `<thead><tr><th style="${thS}">Year</th>${FYS.map(y => `<th style="${thS};text-align:right">${y}</th>`).join("")}</tr></thead>`;
-    const rows = [["Provisions (₹ Cr est.)", provH.map(v => v != null ? fmt(null).replace("—", "₹" + (v * ((PATFY25[ticker] || 1000) / 100)).toFixed(0) + " Cr") : "—")], ["As % of NP", provH.map(v => v != null ? v + "%" : "—")]];
-    let b = "<tbody>";
-    rows.forEach(([l, vals], ri) => {
-      b += `<tr style="background:${ri % 2 ? "#fff" : "#f8fafc"}"><td style="${tdS};font-weight:700">${l}</td>${vals.map(v => `<td style="${tdS};text-align:right;font-family:monospace;font-size:9px">${v}</td>`).join("")}</tr>`;
-    });
-    return tblWrap(h + b, 420);
+    let b = `<tbody><tr style="background:#f8fafc"><td style="${tdS};font-weight:700">As % of NP (est.)</td>${provH.map(v => `<td style="${tdS};text-align:right;font-family:monospace;font-weight:700;color:${v < 5 ? "#059669" : v < 10 ? "#d97706" : "#ef4444"}">${v != null ? v + "%" : "—"}</td>`).join("")}</tr></tbody>`;
+    return tblWrap(h + b, 380);
   })()}
   </div>`;
 
-  // ── Section 4: EBITDA → CFO Conversion ──────────────────────────────────
+  // ── C6: EBITDA → CFO Conversion ───────────────────────────────────────────────
   html += `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 13px;margin-bottom:10px">
-    <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">💰 C6 — EBITDA → CFO Conversion (FY25A)</div>
+    <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">💰 C6 — EBITDA → CFO Conversion (FY25A)</div>
+    <div style="background:#fef3c7;border:1px solid #fde68a;border-radius:5px;padding:4px 8px;font-size:7.5px;color:#92400e;margin-bottom:7px">🟡 EBITDA and CFO figures are from FY25A audited cash flow statements. Q3FY26 interim cash flows not available in quarterly BSE filings.</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:6px">
-      ${[["EBITDA (₹ Cr)", fmt(ebitda), "#0891b2", "Operating profit before depreciation, interest, tax"], ["CFO (₹ Cr)", fmt(cfo), "#059669", "Cash Flow from Operations (actual cash generated)"], ["CFO/EBITDA", ebitda && cfo ? +(cfo / ebitda * 100).toFixed(1) + "%" : "—", ebitda && cfo && cfo / ebitda >= .75 ? "#059669" : ebitda && cfo && cfo / ebitda >= .65 ? "#d97706" : "#ef4444", "Threshold: ≥75% Full · ≥65% Partial"]].map(([l, v, c, note]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px 11px">
+      ${[["EBITDA FY25A (₹ Cr)", fmt(ebitda), "#0891b2", "Operating profit before D&A, interest, tax"], ["CFO FY25A (₹ Cr)", fmt(cfo), "#059669", "Cash Flow from Operations — actual cash generated"], ["CFO/EBITDA %", ebitda && cfo ? +(cfo / ebitda * 100).toFixed(1) + "%" : "—", ebitda && cfo && cfo / ebitda >= .75 ? "#059669" : ebitda && cfo && cfo / ebitda >= .65 ? "#d97706" : "#ef4444", "C6 threshold: ≥75%=Full · ≥65%=Partial"]].map(([l, v, c, note]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px 11px">
         <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase">${l}</div>
         <div style="font-size:14px;font-weight:900;color:${c};font-family:monospace;margin-top:2px">${v}</div>
-        <div style="font-size:7px;color:#94a3b8;margin-top:3px">${note}</div>
+        <div style="font-size:7px;color:#94a3b8;margin-top:2px">${note}</div>
       </div>`).join("")}
     </div>
     ${(() => {
     const cfoH = CFODATA[ticker] || [];
     const FYS = ["FY22", "FY23", "FY24", "FY25A"];
     const h = `<thead><tr><th style="${thS}">Year</th>${FYS.map(y => `<th style="${thS};text-align:right">${y}</th>`).join("")}</tr></thead>`;
-    let b = `<tbody><tr style="background:#f8fafc"><td style="${tdS};font-weight:700">CFO/EBITDA %</td>${cfoH.map(v => `<td style="${tdS};text-align:right;font-family:monospace;font-weight:700;color:${v >= 75 ? "#059669" : v >= 65 ? "#d97706" : "#ef4444"}">${v != null ? v + "%" : "—"}</td>`).join("")}</tr></tbody>`;
-    return tblWrap(h + b, 400);
+    let b = `<tbody><tr style="background:#f0fdf4"><td style="${tdS};font-weight:700">CFO/EBITDA %</td>${cfoH.map(v => `<td style="${tdS};text-align:right;font-family:monospace;font-weight:700;color:${v >= 75 ? "#059669" : v >= 65 ? "#d97706" : "#ef4444"}">${v != null ? v + "%" : "—"}</td>`).join("")}</tr></tbody>`;
+    return tblWrap(h + b, 380);
   })()}
   </div>`;
 
-  // ── Section 5: Arbitration & Legal Claims ──────────────────────────────
+  // ── C7: Arb & Legal ───────────────────────────────────────────────────────────
   html += `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 13px;margin-bottom:10px">
-    <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">⚖️ C7 — Arbitration & Legal Claims vs Net Worth (FY25A)</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
-      ${[["Arb & Legal Claims (₹ Cr)", fmt(arb), "#ef4444", "Pending arbitration awards + contingent legal liabilities disclosed in notes"], ["Net Worth (₹ Cr)", fmt(nw), "#1e293b", "Shareholders' equity from audited balance sheet"], ["Claims as % of NW", pct(arb, nw), arb && nw && arb / nw * 100 < 5 ? "#059669" : arb && nw && arb / nw * 100 < 10 ? "#d97706" : "#ef4444", "Threshold: <5% Full · <10% Partial · ≥10% Fail"]].map(([l, v, c, note]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px 11px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px">
+      <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em">⚖️ C7 — Arbitration & Legal Claims vs Net Worth</div>
+      <div>${statusBadge(ds.nw?.status, ds.nw?.val, ds.nw?.period, ds.nw?.src, "")}</div>
+    </div>
+    <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:5px;padding:5px 8px;font-size:7.5px;color:#9a3412;margin-bottom:7px">
+      ⚠️ Arb/Legal claims sourced from <b>Contingent Liabilities Note</b> in FY25 Annual Report. Amounts are <u>estimated</u> for most companies — must be verified from the specific note before use. Net Worth from FY25 audited BS.
+      ${ds.nw?.status !== "V" ? `<br/><a href="${bsl.q3ppt}" target="_blank" style="color:#7c3aed;font-weight:700">→ Fetch FY25 Annual Report to verify</a>` : ""}
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
+      ${[["Arb & Legal Claims (₹ Cr)", fmt(arb), "#ef4444", "Contingent liabilities — est. from industry norms"], ["Net Worth FY25A (₹ Cr)", fmt(nw), ds.nw?.status === "V" ? "#1e293b" : "#d97706", ds.nw?.status === "V" ? "Verified from FY25 AR" : "Estimated — verify from Annual Report"], ["Claims as % of NW", pct(arb, nw), arb && nw && arb / nw * 100 < 5 ? "#059669" : arb && nw && arb / nw * 100 < 10 ? "#d97706" : "#ef4444", "<5%=Full · <10%=Partial · ≥10%=Fail"]].map(([l, v, c, note]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px 11px">
         <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase">${l}</div>
         <div style="font-size:14px;font-weight:900;color:${c};font-family:monospace;margin-top:2px">${v}</div>
-        <div style="font-size:7px;color:#94a3b8;margin-top:3px">${note}</div>
+        <div style="font-size:7px;color:#94a3b8;margin-top:2px">${note}</div>
       </div>`).join("")}
     </div>
+    ${gapRow("Net Worth", nw, ds.nw?.val, ds.nw?.src || "verified source")}
   </div>`;
-  html += `<div style="font-size:8px;color:#94a3b8;background:#f8fafc;padding:5px 9px;border-radius:5px;border:1px solid #e2e8f0">⚠ Underlying amounts are indicative estimates from latest annual reports and BSE filings. Provisions/write-off absolute amounts derived from % × NP. Always verify against audited financials. Data as of FY25A / Q3FY26.</div>`;
+  html += `<div style="font-size:8px;color:#94a3b8;background:#f8fafc;padding:5px 9px;border-radius:5px;border:1px solid #e2e8f0">⚠ ✅ Verified data sourced from Q3FY26 BSE filings, press releases and concall transcripts. 🟡 Estimated data based on FY25A Annual Reports and H1FY26 results — indicative only. ⚠️ Data Pending = source not yet cross-checked. Always verify all figures against latest BSE filings before investment decisions. Arb/legal claims are particularly prone to estimation error — verify from Annual Report contingent liabilities note.</div>`;
   return html;
 }
-
-// Underlying Data panel component
 function UnderlyingPanel({
   co
 }) {
