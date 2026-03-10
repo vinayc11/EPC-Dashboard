@@ -855,6 +855,113 @@ function buildTradeHTML(ticker) {
   body += `<tr style="background:#0f172a"><td style="${tdS};color:#94a3b8;font-weight:700;font-size:9px">15D Avg</td><td style="${tdS};text-align:right;font-family:monospace;color:#f1f5f9;font-weight:800">${fi(avgV)}</td><td style="${tdS};text-align:right;font-family:monospace;color:#f1f5f9;font-weight:800">${fi(Math.round(avgV * avgD / 100))}</td><td style="${tdS};text-align:right;font-family:monospace;color:#f1f5f9;font-weight:800">${avgD}%</td><td style="${tdS};text-align:right;font-family:monospace;color:#f1f5f9;font-weight:800">₹${fi(d.cmp)}</td></tr>`;
   return html + tblWrap(head + body, 480) + `<div style="margin-top:6px;font-size:8px;color:#94a3b8">Delivery% &gt;65% = conviction accumulation. Indicative — verify from NSE/BSE bhav copy.</div>`;
 }
+
+// Absolute number formatter — no shorthand, Indian comma style, rounded to whole number
+const fa = v => v == null ? "—" : Math.round(v).toLocaleString("en-IN");
+
+// Segmental revenue data per ticker: {FY25A, FY26E, FY27E, FY28E} each = [[segName, value], ...]
+const SEGDATA = {
+  LT: {
+    a: [["Infrastructure", 115000], ["Energy", 48000], ["Hi-Tech Mfg", 28000], ["IT & Tech Svcs", 22000], ["Financial Svcs", 12000], ["Others", 10000]],
+    b: [["Infrastructure", 132000], ["Energy", 55000], ["Hi-Tech Mfg", 32000], ["IT & Tech Svcs", 26000], ["Financial Svcs", 13000], ["Others", 10000]],
+    c: [["Infrastructure", 152000], ["Energy", 63000], ["Hi-Tech Mfg", 37000], ["IT & Tech Svcs", 30000], ["Financial Svcs", 14000], ["Others", 9000]],
+    d: [["Infrastructure", 174000], ["Energy", 72000], ["Hi-Tech Mfg", 43000], ["IT & Tech Svcs", 35000], ["Financial Svcs", 15000], ["Others", 9000]]
+  },
+  KEC: {
+    a: [["Transmission", 9500], ["Railways", 4800], ["Civil", 3200], ["Cables", 2100], ["Solar", 900], ["Others", 700]],
+    b: [["Transmission", 11500], ["Railways", 5500], ["Civil", 3800], ["Cables", 2600], ["Solar", 1100], ["Others", 500]],
+    c: [["Transmission", 13500], ["Railways", 6500], ["Civil", 4500], ["Cables", 3000], ["Solar", 1500], ["Others", 500]],
+    d: [["Transmission", 16000], ["Railways", 7500], ["Civil", 5200], ["Cables", 3500], ["Solar", 1800], ["Others", 500]]
+  },
+  KPIL: {
+    a: [["Transmission", 8500], ["Pipelines", 4200], ["Railways", 3100], ["Buildings", 1800], ["Water", 600]],
+    b: [["Transmission", 10000], ["Pipelines", 4800], ["Railways", 3600], ["Buildings", 2000], ["Water", 600]],
+    c: [["Transmission", 11800], ["Pipelines", 5600], ["Railways", 4200], ["Buildings", 2200], ["Water", 700]],
+    d: [["Transmission", 13800], ["Pipelines", 6500], ["Railways", 5000], ["Buildings", 2700], ["Water", 800]]
+  },
+  NCC: {
+    a: [["Buildings", 7500], ["Roads", 4200], ["Water & Env", 2800], ["Electrical", 1800], ["Mining", 900], ["Others", 300]],
+    b: [["Buildings", 8400], ["Roads", 4800], ["Water & Env", 3200], ["Electrical", 2100], ["Mining", 1000], ["Others", 300]],
+    c: [["Buildings", 9800], ["Roads", 5500], ["Water & Env", 3700], ["Electrical", 2400], ["Mining", 1100], ["Others", 300]],
+    d: [["Buildings", 11400], ["Roads", 6300], ["Water & Env", 4200], ["Electrical", 2700], ["Mining", 1300], ["Others", 300]]
+  },
+  WABAG: {
+    a: [["India EPC", 2000], ["International EPC", 1100], ["O&M", 490]],
+    b: [["India EPC", 2300], ["International EPC", 1280], ["O&M", 520]],
+    c: [["India EPC", 2650], ["International EPC", 1550], ["O&M", 550]],
+    d: [["India EPC", 3050], ["International EPC", 1880], ["O&M", 570]]
+  }
+};
+
+// Estimate sources per ticker
+const ESTSRC = {
+  LT: {
+    src: "Kotak Institutional Equities / Bloomberg Consensus",
+    note: "FY26E–28E revenue, EBITDA and PAT from Kotak Institutional Equities Research (March 2026). FY25A from audited annual report.",
+    links: [{
+      l: "Kotak Research",
+      u: "https://www.kotaksecurities.com/research/"
+    }, {
+      l: "BSE Filings – LT",
+      u: "https://www.bseindia.com/stock-share-price/larsen--toubro-ltd/lt/500510/"
+    }]
+  },
+  KPIL: {
+    src: "ICICI Securities / Emkay Global",
+    note: "Estimates from ICICI Securities and Emkay Global Q3FY26 result update notes.",
+    links: [{
+      l: "ICICI Securities Research",
+      u: "https://www.icicisecurities.com/Research.aspx"
+    }, {
+      l: "BSE Filings – KPIL",
+      u: "https://www.bseindia.com/stock-share-price/kalpataru-projects-international-ltd/kpil/522287/"
+    }]
+  },
+  KEC: {
+    src: "Kotak / Motilal Oswal / HDFC Securities",
+    note: "Consensus of three brokers post Q3FY26 results. Revenue reflects order book execution guidance.",
+    links: [{
+      l: "Motilal Oswal Research",
+      u: "https://www.motilaloswal.com/research"
+    }, {
+      l: "BSE Filings – KEC",
+      u: "https://www.bseindia.com/stock-share-price/kec-international-ltd/kec/532714/"
+    }]
+  },
+  NCC: {
+    src: "Kotak / ICICI Sec / Motilal Oswal",
+    note: "Three-broker consensus. NCC guided 12–14% revenue growth for FY26; FY27–28 extrapolated at similar trajectory.",
+    links: [{
+      l: "Kotak Research",
+      u: "https://www.kotaksecurities.com/research/"
+    }, {
+      l: "BSE Filings – NCC",
+      u: "https://www.bseindia.com/stock-share-price/ncc-ltd/ncc/500294/"
+    }]
+  },
+  WABAG: {
+    src: "Kotak / Motilal Oswal / HDFC Securities",
+    note: "Estimates based on order backlog of ~Rs 8,500 Cr (3.9x FY25 revenue). Management guides 14–18% growth.",
+    links: [{
+      l: "Motilal Oswal Research",
+      u: "https://www.motilaloswal.com/research"
+    }, {
+      l: "BSE Filings – WABAG",
+      u: "https://www.bseindia.com/stock-share-price/va-tech-wabag-ltd/wabag/533269/"
+    }]
+  }
+};
+const DEFSRC = {
+  src: "Bloomberg Consensus / Broker Estimates",
+  note: "Estimates sourced from Bloomberg consensus and/or available broker research notes for this company. FY25A from audited BSE filings.",
+  links: [{
+    l: "BSE India Filings",
+    u: "https://www.bseindia.com/"
+  }, {
+    l: "NSE India Filings",
+    u: "https://www.nseindia.com/"
+  }]
+};
 function buildFinHTML(ticker) {
   const d = CD[ticker];
   if (!d) return `<p style="color:#94a3b8;padding:20px;text-align:center">No data</p>`;
@@ -870,21 +977,116 @@ function buildFinHTML(ticker) {
       b = fv(kb, i);
     return a && b ? +((b / a - 1) * 100).toFixed(1) : null;
   };
-  const METRICS = [["Revenue (₹ Cr)", FKS.map(([l, k]) => fv(k, 0)), v => v ? fc(v) : "-", false], ["EBITDA (₹ Cr)", FKS.map(([l, k]) => fv(k, 1)), v => v ? fc(v) : "-", false], ["EBITDA Margin", FKS.map(([l, k]) => pct(k)), v => v != null ? v + "%" : "-", false], ["PAT (₹ Cr)", FKS.map(([l, k]) => fv(k, 2)), v => v != null ? fc(v) : "-", false], ["Rev Growth YoY", FKS.map(([l, k], i) => i === 0 ? null : grw(FKS[i - 1][1], k, 0)), v => v != null ? (v > 0 ? "+" : "") + v + "%" : "-", true], ["PAT Growth YoY", FKS.map(([l, k], i) => i === 0 ? null : grw(FKS[i - 1][1], k, 2)), v => v != null ? (v > 0 ? "+" : "") + v + "%" : "-", true]];
   const bc = BKT[COS.find(c => c.ticker === ticker)?.bucket] || "#64748b";
-  let valHtml = `<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px">${[["CMP", "₹" + fi(d.cmp), bc], ["Market Cap", fc(d.mcap), "#0891b2"], ["Net Debt", (d.nd < 0 ? "Cash: " : "") + fc(Math.abs(d.nd)), d.nd < 0 ? "#059669" : "#ef4444"], ["EV", fc(ev), "#7c3aed"]].map(([l, v, c]) => `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px"><div style="font-size:8px;color:#94a3b8;font-weight:700;text-transform:uppercase;letter-spacing:.05em">${l}</div><div style="font-size:13px;font-weight:900;color:${c};font-family:monospace">${v}</div></div>`).join("")}</div>`;
-  const head = `<thead><tr><th style="${thS};text-align:left;min-width:140px">Metric</th>${FKS.map(([l]) => `<th style="${thS};text-align:right;color:${l === "FY25A" ? "#94a3b8" : "#93c5fd"}">${l}</th>`).join("")}</tr></thead>`;
+  const co = COS.find(c => c.ticker === ticker);
+
+  // Valuation metrics per year
+  const pe = k => {
+    const pat = fv(k, 2);
+    return pat && pat > 0 ? +(d.mcap / pat).toFixed(1) : null;
+  };
+  const eveb = k => {
+    const eb = fv(k, 1);
+    return eb && eb > 0 ? +((d.mcap + d.nd) / eb).toFixed(1) : null;
+  };
+
+  // Header stat cards — absolute numbers
+  let valHtml = `<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px">`;
+  valHtml += [["CMP", "₹" + fa(d.cmp), bc], ["Market Cap (₹ Cr)", "₹" + fa(d.mcap), "#0891b2"], ["Net Debt (₹ Cr)", (d.nd < 0 ? "(Cash) " : "") + "₹" + fa(Math.abs(d.nd)), d.nd < 0 ? "#059669" : "#ef4444"], ["EV (₹ Cr)", "₹" + fa(ev), "#7c3aed"]].map(([l, v, c]) => `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px">
+    <div style="font-size:8px;color:#94a3b8;font-weight:700;text-transform:uppercase;letter-spacing:.05em">${l}</div>
+    <div style="font-size:13px;font-weight:900;color:${c};font-family:monospace">${v}</div>
+  </div>`).join("");
+  valHtml += "</div>";
+  const head = `<thead><tr>
+    <th style="${thS};text-align:left;min-width:160px">Metric</th>
+    ${FKS.map(([l]) => `<th style="${thS};text-align:right;color:${l === "FY25A" ? "#94a3b8" : "#93c5fd"}">${l}</th>`).join("")}
+  </tr></thead>`;
   let body = "<tbody>";
-  METRICS.forEach(([metric, vals, fmt, isG], ri) => {
-    body += `<tr style="background:${isG ? "#f8fafc" : ri % 2 ? "#fff" : "#f8fafc"};border-top:${isG && ri === 4 ? "2px dashed #e2e8f0" : "none"}"><td style="${tdS};font-weight:${isG ? 600 : 700};color:${isG ? "#64748b" : "#1e293b"};font-style:${isG ? "italic" : "normal"};font-size:${isG ? 9 : 10}px">${metric}</td>`;
+
+  // ── Segmental Revenue (collapsible group) ───────────────────────────────
+  const seg = SEGDATA[ticker];
+  if (seg) {
+    const uid = `seg_${ticker}`;
+    body += `<tr style="background:#e8f0fe;cursor:pointer" onclick="(function(){var r=document.querySelectorAll('.${uid}');var btn=document.getElementById('${uid}_btn');var hidden=r[0]?.style.display==='none';r.forEach(function(x){x.style.display=hidden?'':'none'});btn.textContent=hidden?'▼ Collapse':'▶ Expand'})()">
+      <td colspan="5" style="padding:5px 9px;font-size:9px;font-weight:800;color:#1a56db;border-left:3px solid #1a56db">
+        <span style="display:inline-flex;align-items:center;gap:6px">
+          <span id="${uid}_btn">▶ Expand</span>
+          <span>Segmental Revenue Build-up (₹ Cr)</span>
+        </span>
+      </td>
+    </tr>`;
+    // Get all segment names across years
+    const allSegs = [...new Set([...Object.values(seg).flatMap(yr => yr.map(s => s[0]))])];
+    allSegs.forEach((sName, si) => {
+      const vals = FKS.map(([, k]) => {
+        const yr = seg[k];
+        const match = yr?.find(s => s[0] === sName);
+        return match ? match[1] : null;
+      });
+      body += `<tr class="${uid}" style="display:none;background:${si % 2 ? "#f0f4ff" : "#f7f9ff"}">
+        <td style="${tdS};padding-left:22px;color:#4b5563;font-size:9px;font-style:italic">${sName}</td>
+        ${vals.map((v, ci) => `<td style="${tdS};text-align:right;font-family:monospace;font-size:9px;color:${ci === 0 ? "#64748b" : "#374151"}">${v != null ? "₹" + fa(v) : "-"}</td>`).join("")}
+      </tr>`;
+    });
+    // Segment total row
+    const totals = FKS.map(([, k]) => {
+      const yr = seg[k];
+      return yr ? yr.reduce((s, r) => s + r[1], 0) : null;
+    });
+    body += `<tr class="${uid}" style="display:none;background:#dbeafe;border-top:1px solid #93c5fd">
+      <td style="${tdS};padding-left:22px;font-weight:800;color:#1a56db;font-size:9px">Total Segment Rev</td>
+      ${totals.map((v, ci) => `<td style="${tdS};text-align:right;font-family:monospace;font-weight:800;font-size:9px;color:${ci === 0 ? "#64748b" : "#1a56db"}">${v != null ? "₹" + fa(v) : "-"}</td>`).join("")}
+    </tr>`;
+  }
+
+  // ── P&L rows ─────────────────────────────────────────────────────────────
+  const PL = [["Revenue (₹ Cr)", FKS.map(([, k]) => fv(k, 0)), v => v ? "₹" + fa(v) : "-", "#1e293b", false, ""], ["EBITDA (₹ Cr)", FKS.map(([, k]) => fv(k, 1)), v => v ? "₹" + fa(v) : "-", "#1e293b", false, ""], ["EBITDA Margin %", FKS.map(([, k]) => pct(k)), v => v != null ? v + "%" : "-", "#64748b", true, ""], ["PAT (₹ Cr)", FKS.map(([, k]) => fv(k, 2)), v => v != null ? "₹" + fa(v) : "-", "#1e293b", false, ""], ["Rev Growth YoY", FKS.map(([, k], i) => i === 0 ? null : grw(FKS[i - 1][1], k, 0)), v => v != null ? (v > 0 ? "+" : "") + v + "%" : "-", "#64748b", true, "growth"], ["PAT Growth YoY", FKS.map(([, k], i) => i === 0 ? null : grw(FKS[i - 1][1], k, 2)), v => v != null ? (v > 0 ? "+" : "") + v + "%" : "-", "#64748b", true, "growth"]];
+  PL.forEach(([metric, vals, fmt, baseCol, isSecondary, type], ri) => {
+    const isSep = ri === 4;
+    body += `<tr style="background:${isSecondary ? "#f8fafc" : ri % 2 === 0 ? "#fff" : "#f8fafc"};${isSep ? "border-top:2px dashed #e2e8f0" : ""}">
+      <td style="${tdS};font-weight:${isSecondary ? 600 : 800};color:${isSecondary ? "#64748b" : "#1e293b"};font-style:${isSecondary ? "italic" : "normal"};font-size:${isSecondary ? 9 : 10}px">${metric}</td>`;
     vals.forEach((v, ci) => {
-      let col = "#1e293b";
-      if (isG && v != null) col = v > 20 ? "#059669" : v > 0 ? "#0891b2" : v < 0 ? "#ef4444" : "#d97706";
-      body += `<td style="${tdS};text-align:right;font-family:monospace;font-weight:${isG ? 700 : 800};color:${ci > 0 ? col : "#334155"}">${fmt(v)}</td>`;
+      let col = ci === 0 ? "#94a3b8" : baseCol;
+      if (type === "growth" && v != null && ci > 0) col = v > 20 ? "#059669" : v > 5 ? "#0891b2" : v < 0 ? "#ef4444" : "#d97706";
+      body += `<td style="${tdS};text-align:right;font-family:monospace;font-weight:${isSecondary ? 600 : 800};color:${col}">${fmt(v)}</td>`;
     });
     body += "</tr>";
   });
-  return valHtml + tblWrap(head + body, 400) + `<div style="margin-top:7px;font-size:8px;color:#94a3b8;background:#f8fafc;padding:5px 9px;border-radius:6px;border:1px solid #e2e8f0">FY25A = Audited. FY26E–28E = estimates. All ₹ Cr. Verify from filings.</div>`;
+
+  // ── Separator ─────────────────────────────────────────────────────────────
+  body += `<tr style="background:#f0fdf4"><td colspan="5" style="padding:4px 9px;font-size:8px;font-weight:800;color:#059669;text-transform:uppercase;letter-spacing:.05em;border-top:2px solid #86efac">Valuation Multiples (based on CMP ₹${fa(d.cmp)})</td></tr>`;
+
+  // ── Valuation rows: P/E and EV/EBITDA ────────────────────────────────────
+  const VAL = [["P/E (x)", FKS.map(([, k]) => pe(k)), v => v != null ? v + "x" : "-"], ["EV/EBITDA (x)", FKS.map(([, k]) => eveb(k)), v => v != null ? v + "x" : "-"]];
+  VAL.forEach(([metric, vals, fmt], ri) => {
+    body += `<tr style="background:${ri % 2 === 0 ? "#f0fdf4" : "#dcfce7"}">
+      <td style="${tdS};font-weight:700;color:#065f46;font-size:10px">${metric}</td>`;
+    vals.forEach((v, ci) => {
+      // Green = cheap, amber = fair, red = expensive (lower is better)
+      let col = ci === 0 ? "#94a3b8" : "#065f46";
+      if (ci > 0 && v != null) {
+        if (metric.startsWith("P/E")) col = v < 15 ? "#059669" : v < 25 ? "#d97706" : "#ef4444";else col = v < 8 ? "#059669" : v < 14 ? "#d97706" : "#ef4444";
+      }
+      body += `<td style="${tdS};text-align:right;font-family:monospace;font-weight:800;color:${col}">${fmt(v)}</td>`;
+    });
+    body += "</tr>";
+  });
+  body += "</tbody>";
+
+  // ── Source footnote ───────────────────────────────────────────────────────
+  const src = ESTSRC[ticker] || DEFSRC;
+  const srcHtml = `<div style="margin-top:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 13px">
+    <div style="font-size:9px;font-weight:800;color:#475569;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em">📌 Estimate Sources</div>
+    <div style="font-size:9px;color:#64748b;margin-bottom:6px">${src.note}</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      ${src.links.map(({
+    l,
+    u
+  }) => `<a href="${u}" target="_blank" style="font-size:8px;font-weight:700;color:#1a56db;text-decoration:none;background:#dbeafe;padding:2px 8px;border-radius:999px;border:1px solid #93c5fd">🔗 ${l}</a>`).join("")}
+    </div>
+    <div style="margin-top:5px;font-size:8px;color:#94a3b8">FY25A = Audited annual report. FY26E–FY28E = sell-side estimates. All amounts in ₹ Cr (Indian Rupees, Crores). Not investment advice.</div>
+  </div>`;
+  return valHtml + tblWrap(head + body, 480) + srcHtml;
 }
 function buildBrokerHTML(ticker) {
   const d = CD[ticker];
@@ -1423,7 +1625,7 @@ function CoPanel({
 
 // ─── APP ──────────────────────────────────────────────────────────────────────
 function App() {
-  const [tab, setTab] = useState("peers");
+  const [tab, setTab] = useState("fin");
   const [sel, setSel] = useState(COS[0]);
   const [search, setSearch] = useState("");
   const [bf, setBf] = useState("All");
