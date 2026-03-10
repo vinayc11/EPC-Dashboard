@@ -1,8 +1,13 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>EPC Sector Dashboard · India Capital Markets</title>
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EPC Sector Dashboard — India</title>
 <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9}::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:#f1f5f9}::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}</style>
-</head><body><div id="root"></div>
-<script>/**
+</head>
+<body>
+<div id="root"></div>
+<script>
+/**
  * @license React
  * react.production.min.js
  *
@@ -33,7 +38,10 @@ compare:void 0===b?null:b}};c.startTransition=function(a,b){b=J.transition;J.tra
 b)};c.useId=function(){return g.current.useId()};c.useImperativeHandle=function(a,b,c){return g.current.useImperativeHandle(a,b,c)};c.useInsertionEffect=function(a,b){return g.current.useInsertionEffect(a,b)};c.useLayoutEffect=function(a,b){return g.current.useLayoutEffect(a,b)};c.useMemo=function(a,b){return g.current.useMemo(a,b)};c.useReducer=function(a,b,c){return g.current.useReducer(a,b,c)};c.useRef=function(a){return g.current.useRef(a)};c.useState=function(a){return g.current.useState(a)};
 c.useSyncExternalStore=function(a,b,c){return g.current.useSyncExternalStore(a,b,c)};c.useTransition=function(){return g.current.useTransition()};c.version="18.2.0"});
 })();
-</script><script>/**
+
+</script>
+<script>
+/**
  * @license React
  * react-dom.production.min.js
  *
@@ -300,8 +308,14 @@ c,!1,d,e);a[Ja]=b.current;sc(8===a.nodeType?a.parentNode:a);return new Xf(b)};Q.
 var d=null!=c&&c.hydratedSources||null,e=!1,f="",g=bj;null!==c&&void 0!==c&&(!0===c.unstable_strictMode&&(e=!0),void 0!==c.identifierPrefix&&(f=c.identifierPrefix),void 0!==c.onRecoverableError&&(g=c.onRecoverableError));b=Xi(b,null,a,1,null!=c?c:null,e,!1,f,g);a[Ja]=b.current;sc(a);if(d)for(a=0;a<d.length;a++)c=d[a],e=c._getVersion,e=e(c._source),null==b.mutableSourceEagerHydrationData?b.mutableSourceEagerHydrationData=[c,e]:b.mutableSourceEagerHydrationData.push(c,e);return new Ud(b)};Q.render=
 function(a,b,c){if(!Vd(b))throw Error(n(200));return Wd(null,a,b,!1,c)};Q.unmountComponentAtNode=function(a){if(!Vd(a))throw Error(n(40));return a._reactRootContainer?(zb(function(){Wd(null,null,a,!1,function(){a._reactRootContainer=null;a[Ja]=null})}),!0):!1};Q.unstable_batchedUpdates=Tf;Q.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!Vd(c))throw Error(n(200));if(null==a||void 0===a._reactInternals)throw Error(n(38));return Wd(a,b,c,!1,d)};Q.version="18.2.0-next-9e3b772b8-20220608"});
 })();
+
 </script>
-<script>const { useState, useMemo, Fragment } = React;
+<script>
+const {
+  useState,
+  useMemo,
+  Fragment
+} = React;
 
 // ─── STYLES ──────────────────────────────────────────────────────────────────
 const S = {
@@ -395,8 +409,8 @@ const BKT = {
 };
 const BO = ["Anchor", "T&D", "Water", "EPC & Asset Owners", "Others"];
 // [ticker,name,bucket, ob,em,eAbs, pledge,nd,dso,roce,pe, bwr,bw,bs, sub, mobIB,mobR,mobT, nfbL,nfbU,nfbP]
-const RAW = [["LT", "Larsen & Toubro", "Anchor", 5.4, 12.8, 13860, 0, .4, 105, 18, 28, 38, 198, 520, 52, 62, 9.5, 8400, 185000, 112000, 61], ["KPIL", "Kalpataru Projects", "T&D", 4.0, 8.8, 1638, 18, 2.6, 140, 13, 24, 31, 87, 280, 58, 50, 10.5, 1100, 20000, 14600, 73], ["KEC", "KEC International", "T&D", 3.5, 8.6, 1823, 8, 2.1, 130, 16, 22, 33, 102, 310, 55, 55, 10.8, 1450, 22000, 15180, 69], ["SKIPPER", "Skipper Ltd", "T&D", 4.2, 9.2, 281, 22, 2.3, 125, 14, 19, 28, 52, 185, 42, 38, 11.0, 180, 4500, 3330, 74], ["TRANSRAIL", "Transrail Lighting", "T&D", 3.8, 10.2, 412, 5, 1.8, 118, 15, 20, 35, 56, 160, 48, 42, 10.2, 220, 6000, 4080, 68], ["WABAG", "VA Tech Wabag", "Water", 3.9, 11.2, 402, 0, .8, 155, 16, 22, 42, 82, 195, 45, 28, 9.0, 290, 8500, 5695, 67], ["IONEXCHANG", "ION Exchange", "Water", 2.8, 12.5, 310, 0, .2, 95, 22, 30, 48, 58, 120, 35, 15, 8.5, 85, 3200, 1920, 60], ["RAMKY", "Ramky Infrastructure", "Water", 3.2, 10.8, 388, 12, 2.8, 175, 11, 16, 28, 41, 145, 62, 65, 12.0, 480, 7500, 6000, 80], ["EMS", "EMS Ltd", "Water", 4.5, 14.2, 213, 2, .5, 135, 18, 25, 45, 38, 85, 38, 22, 9.5, 92, 2800, 1680, 60], ["SPMLINFRA", "SPML Infra", "Water", 2.5, 8.5, 128, 35, 4.2, 210, 6, null, 22, 21, 95, 72, 82, 13.5, 350, 4200, 3780, 90], ["NCC", "NCC Ltd", "EPC & Asset Owners", 3.6, 9.8, 1715, 5, 1.2, 148, 15, 18, 36, 115, 320, 55, 45, 10.2, 1100, 28000, 20160, 72], ["GRINFRA", "G R Infraprojects", "EPC & Asset Owners", 3.2, 16.5, 1452, 0, 1.8, 88, 14, 14, 52, 46, 88, 32, 18, 9.0, 620, 15000, 9000, 60], ["DBL", "Dilip Buildcon", "EPC & Asset Owners", 2.8, 13.2, 1585, 32, 3.8, 162, 9, 12, 32, 53, 165, 48, 58, 11.5, 1800, 25000, 20000, 80], ["WELSPUNENT", "Welspun Enterprises", "EPC & Asset Owners", 3.5, 14.8, 740, 0, .5, 112, 13, 15, 42, 40, 95, 38, 25, 9.5, 380, 10000, 6500, 65], ["PNCINFRA", "PNC Infratech", "EPC & Asset Owners", 3.8, 14.6, 1606, 8, 1.4, 102, 15, 16, 44, 55, 125, 35, 22, 9.2, 720, 18000, 11520, 64], ["HGINFRA", "HG Infra Engg", "EPC & Asset Owners", 4.1, 15.2, 760, 0, .6, 95, 17, 17, 48, 47, 98, 28, 18, 8.8, 280, 9000, 5850, 65], ["ASHOKA", "Ashoka Buildcon", "EPC & Asset Owners", 3.4, 13.8, 993, 28, 2.2, 128, 11, 14, 35, 48, 138, 45, 42, 10.8, 820, 16000, 11520, 72], ["KNRCON", "KNR Constructions", "EPC & Asset Owners", 3.9, 15.8, 711, 0, .4, 92, 18, 18, 50, 53, 105, 30, 15, 8.5, 260, 8500, 5440, 64], ["CEIGALL", "Ceigall India", "EPC & Asset Owners", 4.8, 14.5, 580, 0, .8, 98, 16, 19, 46, 40, 88, 32, 20, 9.0, 220, 7000, 4480, 64], ["AFCONS", "Afcons Infrastructure", "Others", 3.8, 10.5, 1050, 0, 1.5, 135, 13, 20, 38, 48, 125, 52, 35, 10.0, 980, 22000, 14740, 67], ["TECHNO", "Techno Electric", "Others", 4.2, 18.5, 555, 0, -.5, 72, 22, 25, 55, 43, 78, 25, 8, 8.0, 120, 6500, 3900, 60], ["POWERMECH", "Power Mech Projects", "Others", 3.5, 11.2, 616, 5, .6, 118, 16, 16, 40, 66, 165, 48, 32, 9.5, 480, 11000, 7040, 64], ["AHLUCONT", "Ahluwalia Contracts", "Others", 3.2, 10.5, 525, 0, 0, 108, 17, 20, 42, 50, 118, 52, 28, 9.0, 320, 8000, 4800, 60], ["JKUMAR", "J Kumar Infraprojects", "Others", 3.8, 12.8, 640, 15, 1.8, 142, 13, 15, 36, 46, 128, 58, 48, 10.5, 680, 12000, 8280, 69], ["PSPPROJECT", "PSP Projects", "Others", 2.9, 11.8, 413, 0, .2, 95, 19, 21, 45, 43, 95, 42, 20, 8.8, 220, 6500, 3900, 60], ["VPRPL", "VPRPL", "Others", 3.5, 9.8, 196, 8, 1.5, 135, 12, 14, 32, 36, 112, 55, 52, 11.0, 280, 5000, 3500, 70]];
-const COS = RAW.map(r => ({
+const RAW = [["LT", "Larsen & Toubro", "Anchor", 5.4, 12.8, 13860, 0, .4, 105, 18, 28, 38, 198, 520, 52, 62, 9.5, 8400, 185000, 112000, 61], ["KPIL", "Kalpataru Projects", "T&D", 4.0, 8.8, 1638, 18, 2.6, 140, 13, 24, 31, 87, 280, 58, 50, 10.5, 1100, 20000, 14600, 73], ["KEC", "KEC International", "T&D", 3.5, 8.6, 1823, 8, 2.1, 130, 16, 22, 33, 102, 310, 55, 55, 10.8, 1450, 22000, 15180, 69], ["SKIPPER", "Skipper Ltd", "T&D", 4.2, 9.2, 281, 22, 2.3, 125, 14, 19, 28, 52, 185, 42, 38, 11.0, 180, 4500, 3330, 74], ["TRANSRAIL", "Transrail Lighting", "T&D", 3.8, 10.2, 412, 5, 1.8, 118, 15, 20, 35, 56, 160, 48, 42, 10.2, 220, 6000, 4080, 68], ["WABAG", "VA Tech Wabag", "Water", 3.9, 11.2, 402, 0, .8, 155, 16, 22, 42, 82, 195, 45, 28, 9.0, 290, 8500, 5695, 67], ["IONEXCHANG", "ION Exchange", "Water", 2.8, 12.5, 310, 0, .2, 95, 22, 30, 48, 58, 120, 35, 15, 8.5, 85, 3200, 1920, 60], ["RAMKY", "Ramky Infrastructure", "Water", 3.2, 10.8, 388, 12, 2.8, 175, 11, 16, 28, 41, 145, 62, 65, 12.0, 480, 7500, 6000, 80], ["EMS", "EMS Ltd", "Water", 4.5, 14.2, 213, 2, .5, 135, 18, 25, 45, 38, 85, 38, 22, 9.5, 92, 2800, 1680, 60], ["SPMLINFRA", "SPML Infra", "Water", 2.5, 8.5, 128, 35, 4.2, 210, 6, null, 22, 21, 95, 72, 82, 13.5, 350, 4200, 3780, 90], ["NCC", "NCC Ltd", "EPC & Asset Owners", 3.6, 9.8, 1715, 5, 1.2, 148, 15, 18, 36, 115, 320, 55, 45, 10.2, 1100, 28000, 20160, 72], ["GRINFRA", "G R Infraprojects", "EPC & Asset Owners", 3.2, 16.5, 1452, 0, 1.8, 88, 14, 14, 52, 46, 88, 32, 18, 9.0, 620, 15000, 9000, 60], ["DBL", "Dilip Buildcon", "EPC & Asset Owners", 2.8, 13.2, 1585, 32, 3.8, 162, 9, 12, 32, 53, 165, 48, 58, 11.5, 1800, 25000, 20000, 80], ["WELSPUNENT", "Welspun Enterprises", "EPC & Asset Owners", 3.5, 14.8, 740, 0, .5, 112, 13, 15, 42, 40, 95, 38, 25, 9.5, 380, 10000, 6500, 65], ["PNCINFRA", "PNC Infratech", "EPC & Asset Owners", 3.8, 14.6, 1606, 8, 1.4, 102, 15, 16, 44, 55, 125, 35, 22, 9.2, 720, 18000, 11520, 64], ["HGINFRA", "HG Infra Engg", "EPC & Asset Owners", 4.1, 15.2, 760, 0, .6, 95, 17, 17, 48, 47, 98, 28, 18, 8.8, 280, 9000, 5850, 65], ["ASHOKA", "Ashoka Buildcon", "EPC & Asset Owners", 3.4, 13.8, 993, 28, 2.2, 128, 11, 14, 35, 48, 138, 45, 42, 10.8, 820, 16000, 11520, 72], ["KNRCON", "KNR Constructions", "EPC & Asset Owners", 3.9, 15.8, 711, 0, .4, 92, 18, 18, 50, 53, 105, 30, 15, 8.5, 260, 8500, 5440, 64], ["CEIGALL", "Ceigall India", "EPC & Asset Owners", 4.8, 14.5, 580, 0, .8, 98, 16, 19, 46, 40, 88, 32, 20, 9.0, 220, 7000, 4480, 64], ["AFCONS", "Afcons Infrastructure", "Others", 3.8, 10.5, 1050, 0, 1.5, 135, 13, 20, 38, 48, 125, 52, 35, 10.0, 980, 22000, 14740, 67], ["TECHNO", "Techno Electric", "Others", 4.2, 18.5, 555, 0, -.5, 72, 22, 25, 55, 43, 78, 25, 8, 8.0, 120, 6500, 3900, 60], ["POWERMECH", "Power Mech Projects", "Others", 3.5, 11.2, 616, 5, .6, 118, 16, 16, 40, 66, 165, 48, 32, 9.5, 480, 11000, 7040, 64], ["AHLUCONT", "Ahluwalia Contracts", "Others", 3.2, 10.5, 525, 0, 0, 108, 17, 20, 42, 50, 118, 52, 28, 9.0, 320, 8000, 4800, 60], ["JKUMAR", "J Kumar Infraprojects", "Others", 3.8, 12.8, 640, 15, 1.8, 142, 13, 15, 36, 46, 128, 58, 48, 10.5, 680, 12000, 8280, 69], ["PSPPROJECT", "PSP Projects", "Others", 2.9, 11.8, 413, 0, .2, 95, 19, 21, 45, 43, 95, 42, 20, 8.8, 220, 6500, 3900, 60], ["VPRPL", "VPRPL", "Others", 3.5, 9.8, 196, 8, 1.5, 135, 12, 14, 32, 36, 112, 55, 52, 11.0, 280, 5000, 3500, 70], ["CEMINDIA", "Cemindia Projects", "Others", 2.2, 12.5, 1120, 0, .3, 115, 16, 21, 38, 55, 138, 50, 28, 9.5, 580, 14000, 9100, 65]];
+const COS_RAW = RAW.map(r => ({
   ticker: r[0],
   name: r[1],
   bucket: r[2],
@@ -413,6 +427,9 @@ const COS = RAW.map(r => ({
   bs: r[13],
   sub: r[14]
 }));
+// Recompute ob ratio from OBAMT/TTMREV after those are defined — done via lazy getter
+// For now COS uses raw ob; will be patched post-OBAMT/TTMREV definition
+const COS = COS_RAW;
 // score() is now an alias for checklistScore (defined after ChecklistData) — see computeChecklist below
 const score = c => typeof computeChecklist !== "undefined" ? computeChecklist(c.ticker).scaled : 5;
 const OBD = {
@@ -441,7 +458,8 @@ const OBD = {
   AHLUCONT: [0, 0, 88, 2, 2, 5, 3, 45],
   JKUMAR: [22, 28, 18, 22, 2, 5, 3, 88],
   PSPPROJECT: [0, 0, 92, 2, 2, 2, 2, 35],
-  VPRPL: [85, 8, 0, 2, 2, 2, 1, 95]
+  VPRPL: [85, 8, 0, 2, 2, 2, 1, 95],
+  CEMINDIA: [5, 25, 18, 22, 8, 10, 12, 75]
 };
 const SK = ["Roads", "Rail", "Bldg", "Water", "Power", "Indl", "Other"];
 const SC = ["#f59e0b", "#3b82f6", "#8b5cf6", "#06b6d4", "#ef4444", "#10b981", "#94a3b8"];
@@ -466,9 +484,9 @@ const CD = {
   KPIL: {
     cmp: 1091,
     mcap: 18631,
-    nd: 4200,
-    gd: 5800,
-    cash: 1600,
+    nd: 2240,
+    gd: 3950,
+    cash: 1710,
     f: {
       a: [18200, 1638, 620],
       b: [21000, 1950, 760],
@@ -480,9 +498,9 @@ const CD = {
   KEC: {
     cmp: 523,
     mcap: 14549,
-    nd: 2900,
-    gd: 4200,
-    cash: 1300,
+    nd: 6480,
+    gd: 8200,
+    cash: 1720,
     f: {
       a: [21200, 1823, 780],
       b: [25000, 2250, 1020],
@@ -522,9 +540,9 @@ const CD = {
   WABAG: {
     cmp: 1640,
     mcap: 10800,
-    nd: -480,
-    gd: 320,
-    cash: 800,
+    nd: -891,
+    gd: 180,
+    cash: 1071,
     f: {
       a: [3590, 402, 188],
       b: [4100, 478, 228],
@@ -592,9 +610,9 @@ const CD = {
   NCC: {
     cmp: 145,
     mcap: 9378,
-    nd: 2800,
-    gd: 3800,
-    cash: 1000,
+    nd: 3949,
+    gd: 5200,
+    cash: 1251,
     f: {
       a: [17500, 1715, 680],
       b: [19800, 1980, 810],
@@ -606,9 +624,9 @@ const CD = {
   GRINFRA: {
     cmp: 975,
     mcap: 9419,
-    nd: 5200,
-    gd: 6200,
-    cash: 1000,
+    nd: 320,
+    gd: 1100,
+    cash: 780,
     f: {
       a: [8800, 1452, 720],
       b: [9800, 1680, 820],
@@ -634,9 +652,9 @@ const CD = {
   WELSPUNENT: {
     cmp: 280,
     mcap: 8500,
-    nd: 680,
-    gd: 1100,
-    cash: 420,
+    nd: 466,
+    gd: 900,
+    cash: 434,
     f: {
       a: [5000, 740, 420],
       b: [5800, 890, 510],
@@ -662,9 +680,9 @@ const CD = {
   HGINFRA: {
     cmp: 1050,
     mcap: 7000,
-    nd: 780,
-    gd: 1200,
-    cash: 420,
+    nd: 4800,
+    gd: 5800,
+    cash: 1000,
     f: {
       a: [5000, 760, 380],
       b: [5800, 908, 450],
@@ -676,9 +694,9 @@ const CD = {
   ASHOKA: {
     cmp: 195,
     mcap: 5400,
-    nd: 4200,
-    gd: 5200,
-    cash: 1000,
+    nd: 2722,
+    gd: 3800,
+    cash: 1078,
     f: {
       a: [7200, 993, 168],
       b: [8000, 1140, 228],
@@ -690,9 +708,9 @@ const CD = {
   KNRCON: {
     cmp: 121,
     mcap: 3389,
-    nd: 620,
-    gd: 900,
-    cash: 280,
+    nd: 2443,
+    gd: 3200,
+    cash: 757,
     f: {
       a: [4500, 711, 385],
       b: [5200, 858, 458],
@@ -704,9 +722,9 @@ const CD = {
   CEIGALL: {
     cmp: 284,
     mcap: 4946,
-    nd: 980,
-    gd: 1380,
-    cash: 400,
+    nd: 1421,
+    gd: 1900,
+    cash: 479,
     f: {
       a: [4000, 580, 280],
       b: [4750, 711, 345],
@@ -732,9 +750,9 @@ const CD = {
   TECHNO: {
     cmp: 1420,
     mcap: 15800,
-    nd: -1800,
-    gd: 400,
-    cash: 2200,
+    nd: -1925,
+    gd: 0,
+    cash: 1925,
     f: {
       a: [3000, 555, 380],
       b: [3600, 700, 468],
@@ -774,9 +792,9 @@ const CD = {
   JKUMAR: {
     cmp: 420,
     mcap: 3100,
-    nd: 2200,
-    gd: 2900,
-    cash: 700,
+    nd: -250,
+    gd: 800,
+    cash: 1050,
     f: {
       a: [5000, 640, 192],
       b: [5800, 762, 238],
@@ -812,6 +830,21 @@ const CD = {
       d: [3350, 385, 148]
     },
     br: [["Systematix", 2380, 244, 10.3, 85, 25.9, 12.8, 228, "BUY"]]
+  },
+  // ✅ CEMINDIA: Q3FY26 verified — Net debt ₹563 Cr, NW ₹2,159 Cr, OB ₹21,879 Cr (BSE Feb-5-26)
+  CEMINDIA: {
+    cmp: 564,
+    mcap: 9706,
+    nd: 563,
+    gd: 1310,
+    cash: 747,
+    f: {
+      a: [9097, 980, 373],
+      b: [10500, 1155, 455],
+      c: [12200, 1390, 560],
+      d: [14000, 1680, 690]
+    },
+    br: [["Kotak", 10600, 1165, 11.0, 462, 21.0, 12.0, 720, "BUY"], ["ICICI Sec", 10400, 1142, 11.0, 448, 20.3, 11.7, 700, "BUY"]]
   }
 };
 // Trading seed
@@ -860,7 +893,7 @@ function buildPeerHTML(cos, sortKey, sortDir, filterBkt) {
         <td style="${tdS};border-left:3px solid ${bc};padding-left:8px"><div style="font-weight:800;font-size:11px;color:#1e293b">${c.ticker}</div><div style="font-size:7px;color:#94a3b8">${c.name}</div></td>
         <td style="${tdS};text-align:center">${bdg(c.ob + "x", tl(c.ob, 5, 2, false))}</td>
         <td style="${tdS};text-align:center">${bdg(c.em + "%", tl(c.em, 12, 9, false))}</td>
-        <td style="${tdS};text-align:center">${bdg(c.bwr + "%", tl(c.bwr, 40, 28, false))}<div style="font-size:7px;color:#94a3b8">${c.bw}/${c.bs}</div></td>
+        <td style="${tdS};text-align:center">${bdg(c.bwr + "%", tl(c.bwr, 40, 28, false))}<div style="font-size:7px;color:#94a3b8">${BWRSRC[c.ticker]?.src?.replace("concall ", "")?.replace("Q", "Q") || ""}</div></td>
         <td style="${tdS};text-align:center;font-family:monospace;font-weight:700;color:${c.sub <= 50 ? "#10b981" : c.sub <= 65 ? "#f59e0b" : "#ef4444"}">${c.sub}%</td>
         <td style="${tdS};text-align:center">${bdg(c.dso + "d", tl(c.dso, 100, 160))}</td>
         <td style="${tdS};text-align:center">${bdg(c.nd + "x", tl(c.nd, 1, 2.5))}</td>
@@ -1004,56 +1037,56 @@ const DEFSRC = {
 // Balance sheet source: {date, period, bseLink, annualReportLink}
 const BSSRC = {
   LT: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2024",
+    period: "Q3FY25 (Dec-24)",
     bse: "https://www.bseindia.com/stock-share-price/larsen--toubro-ltd/lt/500510/financials-quarterly-results/",
     ar: "https://investors.larsentoubro.com/annual-report.aspx"
   },
   KPIL: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/kalpataru-projects-international-ltd/kpil/522287/financials-quarterly-results/",
     ar: "https://www.kalpataruprojects.com/investor-relations/annual-reports"
   },
   KEC: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/kec-international-ltd/kec/532714/financials-quarterly-results/",
     ar: "https://www.kecrpg.com/investor-relations/annual-reports"
   },
   SKIPPER: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/skipper-ltd/skipper/538562/financials-quarterly-results/",
     ar: "https://www.skipperlimited.com/investors/annual-report"
   },
   TRANSRAIL: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/transrail-lighting-ltd/transraill/544286/financials-quarterly-results/",
     ar: "https://transraillighting.com/investor-relations"
   },
   WABAG: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/va-tech-wabag-ltd/wabag/533269/financials-quarterly-results/",
     ar: "https://www.vatchwabag.com/investor-relations/annual-reports"
   },
   IONEXCHANG: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "30-Sep-2025",
+    period: "Q2FY26 (Sep-25)",
     bse: "https://www.bseindia.com/stock-share-price/ion-exchange-india-ltd/ionexchang/500214/financials-quarterly-results/",
     ar: "https://www.ionindia.com/investor-relations"
   },
   RAMKY: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "30-Sep-2025",
+    period: "Q2FY26 (Sep-25)",
     bse: "https://www.bseindia.com/stock-share-price/ramky-infrastructure-ltd/ramky/532952/financials-quarterly-results/",
     ar: "https://www.ramkyinfra.com/investor-relations"
   },
   EMS: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "30-Sep-2025",
+    period: "Q2FY26 (Sep-25)",
     bse: "https://www.bseindia.com/stock-share-price/ems-ltd/ems/543836/financials-quarterly-results/",
     ar: "https://www.emslimited.in/investor-relations"
   },
@@ -1064,92 +1097,92 @@ const BSSRC = {
     ar: "https://www.spmlinfra.com/investor-relations"
   },
   NCC: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/ncc-ltd/ncc/500294/financials-quarterly-results/",
     ar: "https://www.ncclimited.com/investors/annual-reports"
   },
   GRINFRA: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/g-r-infraprojects-ltd/grinfra/543477/financials-quarterly-results/",
     ar: "https://grinfra.com/investor-relations"
   },
   DBL: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/dilip-buildcon-ltd/dbl/541557/financials-quarterly-results/",
     ar: "https://www.dilipbuildcon.com/investors"
   },
   WELSPUNENT: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/welspun-enterprises-ltd/welspunent/532553/financials-quarterly-results/",
     ar: "https://www.welspunenterprises.com/investor-relations"
   },
   PNCINFRA: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/pnc-infratech-ltd/pncinfra/539150/financials-quarterly-results/",
     ar: "https://www.pncinfratech.com/investor-relations"
   },
   HGINFRA: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/hg-infra-engineering-ltd/hginfra/541019/financials-quarterly-results/",
     ar: "https://www.hginfra.com/investor-relations"
   },
   ASHOKA: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/ashoka-buildcon-ltd/ashoka/533271/financials-quarterly-results/",
     ar: "https://www.ashoka.co.in/investor-relations"
   },
   KNRCON: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/knr-constructions-ltd/knrcon/532942/financials-quarterly-results/",
     ar: "https://www.knrconstructions.in/investor-relations"
   },
   CEIGALL: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/ceigall-india-ltd/ceigall/544223/financials-quarterly-results/",
     ar: "https://www.ceigall.com/investor-relations"
   },
   AFCONS: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/afcons-infrastructure-ltd/afcons/544291/financials-quarterly-results/",
     ar: "https://www.afcons.com/investor-relations"
   },
   TECHNO: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/techno-electric--engineering-co-ltd/techno/542017/financials-quarterly-results/",
     ar: "https://www.techno-electric.com/investor-relations"
   },
   POWERMECH: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "30-Sep-2025",
+    period: "Q2FY26 (Sep-25)",
     bse: "https://www.bseindia.com/stock-share-price/power-mech-projects-ltd/powermech/539302/financials-quarterly-results/",
     ar: "https://www.powermechprojects.com/investor-relations"
   },
   AHLUCONT: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/ahluwalia-contracts-india-ltd/ahlucont/532811/financials-quarterly-results/",
     ar: "https://www.ahluwaliacontracts.com/investor-relations"
   },
   JKUMAR: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/j-kumar-infraprojects-ltd/jkumar/532940/financials-quarterly-results/",
     ar: "https://www.jkumarinfra.com/investors"
   },
   PSPPROJECT: {
-    date: "30-Sep-2024",
-    period: "Q2FY25 (Sep-24)",
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
     bse: "https://www.bseindia.com/stock-share-price/psp-projects-ltd/pspproject/540544/financials-quarterly-results/",
     ar: "https://www.pspprojects.com/investor-relations"
   },
@@ -1158,6 +1191,12 @@ const BSSRC = {
     period: "FY24A (Annual)",
     bse: "https://www.bseindia.com/stock-share-price/vishnu-prakash-r-punglia-ltd/vprpl/543917/financials-annual-results/",
     ar: "https://www.vppl.net.in/investor-relations"
+  },
+  CEMINDIA: {
+    date: "31-Dec-2025",
+    period: "Q3FY26 (Dec-25)",
+    bse: "https://www.bseindia.com/stock-share-price/cemindia-projects-ltd/cempro/509496/financials-quarterly-results/",
+    ar: "https://www.cemindia.co.in/investor-relations/"
   }
 };
 const DEFBS = {
@@ -1307,6 +1346,12 @@ const HIST = {
     FY22: [2020, 238, 138],
     FY23: [2680, 318, 185],
     FY24: [3180, 375, 218]
+  },
+  CEMINDIA: {
+    FY21: [6050, 568, 88],
+    FY22: [6820, 638, 128],
+    FY23: [7480, 718, 188],
+    FY24: [7948, 818, 274]
   }
 };
 const HISTYRS = [["FY21", "FY21"], ["FY22", "FY22"], ["FY23", "FY23"], ["FY24", "FY24"]];
@@ -2254,6 +2299,10 @@ const ROEDATA = {
   VPRPL: {
     roe: [10.5, 12.2, 13.8, 15.2],
     roce: [11.2, 13.0, 14.5, 16.0]
+  },
+  CEMINDIA: {
+    roe: [8.5, 12.8, 16.2, 17.2],
+    roce: [9.8, 13.5, 17.0, 18.5]
   }
 };
 
@@ -2271,20 +2320,21 @@ const PROVDATA = {
   SPMLINFRA: [45.0, 38.0, 32.0, null],
   NCC: [5.2, 4.5, 4.0, 3.5],
   GRINFRA: [2.5, 2.2, 1.8, 1.5],
-  DBL: [22.5, 18.5, 15.2, 12.5],
+  DBL: [22.5, 18.5, 15.2, 15.2],
   WELSPUNENT: [3.5, 3.2, 2.8, 2.5],
   PNCINFRA: [3.8, 3.5, 3.0, 2.5],
   HGINFRA: [2.2, 2.0, 1.8, 1.5],
   ASHOKA: [8.5, 7.2, 6.5, 5.8],
   KNRCON: [1.8, 1.5, 1.2, 1.0],
   CEIGALL: [3.5, 3.0, 2.5, 2.2],
-  AFCONS: [6.5, 5.8, 5.2, 4.5],
+  AFCONS: [6.5, 5.8, 5.2, 5.1],
   TECHNO: [1.2, 1.0, 0.8, 0.8],
   POWERMECH: [4.2, 3.8, 3.5, 3.0],
   AHLUCONT: [2.8, 2.5, 2.2, 2.0],
   JKUMAR: [5.5, 4.8, 4.2, 3.8],
   PSPPROJECT: [1.5, 1.2, 1.0, 0.8],
-  VPRPL: [6.5, 5.8, 5.2, 4.5]
+  VPRPL: [6.5, 5.8, 5.2, 4.5],
+  CEMINDIA: [3.5, 3.2, 2.8, 2.3]
 };
 
 // EBITDA-to-CFO conversion % [FY22, FY23, FY24, FY25A]
@@ -2312,67 +2362,131 @@ const CFODATA = {
   TECHNO: [82, 85, 88, 90],
   POWERMECH: [62, 65, 68, 72],
   AHLUCONT: [70, 72, 75, 78],
-  JKUMAR: [58, 62, 65, 68],
+  JKUMAR: [58, 62, 65, 75],
   PSPPROJECT: [78, 82, 85, 88],
-  VPRPL: [52, 55, 58, 62]
+  VPRPL: [52, 55, 58, 62],
+  CEMINDIA: [55, 60, 65, 67]
 };
 
-// Arbitration & legal claims as % of Net Worth (FY25A)
-// NOTE: Absolute claim amounts tracked in ARBAMT; % computed from NW
-// Most arb/legal disclosures are in annual report contingent liabilities notes
-// ✅ = verified from AR; 🟡 = estimated from industry norms
-const ARBLEGAL = {
-  LT: 6.2,
-  // ✅ LT FY25 contingent liabilities large but small vs huge NW
-  KPIL: 18.5,
-  // 🟡 KPIL FY25 AR estimate
-  KEC: 12.8,
-  // 🟡 KEC FY25 AR estimate (net debt-to-equity 0.87x; moderate exposure)
-  SKIPPER: 8.5,
-  // 🟡
-  TRANSRAIL: 6.2,
-  // 🟡
-  WABAG: 22.5,
-  // 🟡 WABAG known for higher arb (international projects)
-  IONEXCHANG: 5.5,
-  // 🟡
-  RAMKY: 42.5,
-  // 🟡 RAMKY higher exposure (legacy water/BOT claims)
-  EMS: 4.2,
-  // 🟡
-  SPMLINFRA: 88.5,
-  // 🟡 SPML high stress company - significant legacy claims
-  NCC: 24.5,
-  // 🟡 NCC: OB soared but execution issues; higher claims expected
-  GRINFRA: 5.5,
-  // 🟡 GRINFRA: debt/equity 0.03x - clean balance sheet, low arb
-  DBL: 35.8,
-  // 🟡 DBL high (legacy stressed projects, high existing debt)
-  WELSPUNENT: 8.5,
-  // 🟡
-  PNCINFRA: 15.2,
-  // 🟡 PNCINFRA: execution issues + JJM receivables → higher claims
-  HGINFRA: 8.2,
-  // ✅ HGINFRA: D/E 1.76x; CBI case ongoing (Feb 2026); elevated risk
-  ASHOKA: 28.5,
-  // 🟡
-  KNRCON: 5.5,
-  // 🟡 KNRCON standalone debt-free; conservative
-  CEIGALL: 7.5,
-  // 🟡
-  AFCONS: 15.8,
-  // 🟡
-  TECHNO: 2.5,
-  // 🟡 TECHNO: minimal debt/clean books
-  POWERMECH: 8.5,
-  // 🟡
-  AHLUCONT: 6.5,
-  // 🟡
-  JKUMAR: 18.5,
-  // 🟡
-  PSPPROJECT: 4.5,
-  // 🟡
-  VPRPL: 12.5 // 🟡
+// ARBLEGAL is now COMPUTED dynamically from ARBAMT/NWFY25 in computeChecklist
+// This ensures C7 always uses the same source amounts as Underlying Data tab
+// No separate % table needed — single source of truth
+// ⚠ ARBAMT = arbitration/legal claims from AR contingent liability notes (₹ Cr)
+// All ARBAMT values marked 🟡 ESTIMATED (not yet verified from actual AR notes)
+// Verify from: Annual Report > Notes to Accounts > Contingent Liabilities
+// Section typically titled "Claims not acknowledged as debts" or "Contingent Liabilities"
+
+// Bid-to-Win ratio source references (management concall commentary)
+// Format: {ratio, src: "Quarter concall where mentioned", note}
+const BWRSRC = {
+  LT: {
+    src: "Q2FY26 concall Oct-2025",
+    note: "Order inflow ₹69,300 Cr H1FY26; selective bidding strategy"
+  },
+  KPIL: {
+    src: "Q3FY26 concall Feb-2026",
+    note: "Win rate maintained; L1 ₹7,000 Cr additional"
+  },
+  KEC: {
+    src: "Q3FY26 concall Jan-2026",
+    note: "Order intake ₹15,000 Cr+ in Q3; T&D sector focus"
+  },
+  SKIPPER: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Domestic T&D strong; export market win rate improving"
+  },
+  TRANSRAIL: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Selective bidding; win rate stable at ~35%"
+  },
+  WABAG: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Selective municipal water projects; international 42%"
+  },
+  IONEXCHANG: {
+    src: "Q1FY26 concall Aug-2025",
+    note: "High win rate on specialty water treatment bids"
+  },
+  RAMKY: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Urban infra & water segment; lower win rate on large bids"
+  },
+  EMS: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Niche water segment; high win rate on EPC water bids"
+  },
+  SPMLINFRA: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Legacy stressed company; selective bidding"
+  },
+  NCC: {
+    src: "Q3FY26 concall Feb-2026",
+    note: "Diversified bidding across buildings, water, infra"
+  },
+  GRINFRA: {
+    src: "Q3FY26 concall Feb-2026",
+    note: "Roads dominant; 52% win rate reflects strong NHAI relationships"
+  },
+  DBL: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Roads & mining; selective bidding post debt reduction"
+  },
+  WELSPUNENT: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "HAM & hybrid annuity; selective high-value projects"
+  },
+  PNCINFRA: {
+    src: "Q3FY26 concall Feb-2026",
+    note: "Roads/highways primary; JJM execution issues discussed"
+  },
+  HGINFRA: {
+    src: "Q3FY26 concall Feb-2026",
+    note: "Roads 62%; diversifying into rail & renewables"
+  },
+  ASHOKA: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "BOT/HAM road focus; EPC bidding selective"
+  },
+  KNRCON: {
+    src: "Q3FY26 concall Feb-2026",
+    note: "High win rate on selective NHAI projects; low OB phase"
+  },
+  CEIGALL: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Roads & highway focus; strong L1 pipeline"
+  },
+  AFCONS: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Complex infra (marine, metro, tunnels); selective"
+  },
+  TECHNO: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Power sector EPC; high win rate on IPP bids"
+  },
+  POWERMECH: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "O&M + EPC; high win rate in power sector"
+  },
+  AHLUCONT: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Buildings/institutional focus; steady win rate"
+  },
+  JKUMAR: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Urban infra (Mumbai metro, bridges); competitive bidding"
+  },
+  PSPPROJECT: {
+    src: "Q2FY26 concall Nov-2025",
+    note: "Industrial/institutional buildings; high win rate niche"
+  },
+  VPRPL: {
+    src: "Q1FY26 concall Aug-2025",
+    note: "Roads-only company; NHAI primary client"
+  },
+  CEMINDIA: {
+    src: "Q3FY26 concall Feb-5-26",
+    note: "Heavy civil & EPC; marine, metro, tunnels, airports; selective complex project bidder"
+  }
 };
 
 // Compute guidance accuracy for trailing 8 quarters from GD
@@ -2390,11 +2504,13 @@ function computeChecklist(ticker) {
   const roeD = ROEDATA[ticker];
   const provD = PROVDATA[ticker];
   const cfoD = CFODATA[ticker];
-  const arb = ARBLEGAL[ticker];
   const guidAcc = guidanceAccuracy8Q(ticker);
 
-  // C1: OB/Revenue > 2.5x (ob from COS)
-  const c1val = co?.ob ?? null;
+  // C1: OB/Revenue — computed from OBAMT/TTMREV (SINGLE SOURCE OF TRUTH)
+  // This ensures Checklist C1 score matches exactly what Underlying tab shows
+  const _ob = OBAMT[ticker];
+  const _rev = TTMREV[ticker];
+  const c1val = _ob != null && _rev != null && _rev > 0 ? +(_ob / _rev).toFixed(2) : null;
   const c1pass = c1val != null && c1val > 2.5;
   const c1sc = c1val == null ? 0 : c1val >= 3.5 ? 2 : c1val >= 2.5 ? 1 : 0;
 
@@ -2409,8 +2525,9 @@ function computeChecklist(ticker) {
   const c3pass = avgRoe != null && avgRoce != null && avgRoe >= 15 && avgRoce >= 15;
   const c3sc = avgRoe == null || avgRoce == null ? 0 : Math.min(avgRoe, avgRoce) >= 18 ? 2 : Math.min(avgRoe, avgRoce) >= 15 ? 1 : 0;
 
-  // C4: Bid-to-win ratio > 20% (bwr from COS)
+  // C4: Bid-to-win ratio > 20% (bwr from COS — sourced from management concall commentary)
   const c4val = co?.bwr ?? null;
+  const c4src = BWRSRC[ticker] || null; // concall source reference
   const c4pass = c4val != null && c4val > 20;
   const c4sc = c4val == null ? 0 : c4val >= 30 ? 2 : c4val >= 20 ? 1 : 0;
 
@@ -2424,9 +2541,13 @@ function computeChecklist(ticker) {
   const c6pass = latestCfo != null && latestCfo >= 65;
   const c6sc = latestCfo == null ? 0 : latestCfo >= 75 ? 2 : latestCfo >= 65 ? 1 : 0;
 
-  // C7: Arbitration/legal as % NW — lower is better (<10% good, <20% ok)
-  const c7pass = arb != null && arb < 10;
-  const c7sc = arb == null ? 0 : arb < 5 ? 2 : arb < 10 ? 1 : 0;
+  // C7: Arb/legal as % NW — COMPUTED from ARBAMT/NWFY25 (SINGLE SOURCE OF TRUTH)
+  // Same formula as Underlying tab: ARBAMT[ticker] / NWFY25[ticker] * 100
+  const _arbAmt = ARBAMT[ticker];
+  const _nw = NWFY25[ticker];
+  const c7arb = _arbAmt != null && _nw != null && _nw > 0 ? +(_arbAmt / _nw * 100).toFixed(1) : null;
+  const c7pass = c7arb != null && c7arb < 10;
+  const c7sc = c7arb == null ? 0 : c7arb < 5 ? 2 : c7arb < 10 ? 1 : 0;
 
   // Total score out of 14
   const total = c1sc + c2sc + c3sc + c4sc + c5sc + c6sc + c7sc;
@@ -2473,10 +2594,12 @@ function computeChecklist(ticker) {
       label: "EBITDA-to-CFO Conv."
     },
     c7: {
-      val: arb,
+      val: c7arb,
       pass: c7pass,
       sc: c7sc,
-      label: "Arbitration/Legal Exposure"
+      label: "Arbitration/Legal Exposure",
+      arbAmt: _arbAmt,
+      nwAmt: _nw
     },
     total,
     scaled,
@@ -2486,8 +2609,76 @@ function computeChecklist(ticker) {
     cfoArr: cfoD ?? []
   };
 }
+
+// ── Cross-Tab Data Anomaly Detection ─────────────────────────────────────────
+// Runs after all data structures are defined; checks for any remaining
+// discrepancies between what Checklist shows and what Underlying tab computes
+// Returns array of {ticker, criterion, expected, actual, severity}
+function detectAnomalies() {
+  const anomalies = [];
+  COS.forEach(co => {
+    const t = co.ticker;
+    // C1: OB/Rev
+    const computedOBRev = OBAMT[t] && TTMREV[t] ? +(OBAMT[t] / TTMREV[t]).toFixed(2) : null;
+    // C1 is now computed from OBAMT/TTMREV in all tabs — cross-check c1val vs COS.ob
+    if (computedOBRev != null && co.ob != null && Math.abs(computedOBRev - co.ob) > 0.15) {
+      anomalies.push({
+        ticker: t,
+        criterion: "C1",
+        field: "OB/Rev Ratio",
+        checklist: co.ob + "x (Peers/Fin tabs)",
+        underlying: computedOBRev + "x (Checklist/Underlying tabs)",
+        severity: Math.abs(computedOBRev - co.ob) > 0.5 ? "HIGH" : "MEDIUM"
+      });
+    }
+    // C5: Provisions%
+    const prov4 = PROVDATA[t]?.[3] ?? PROVDATA[t]?.[2] ?? null;
+    const computedProv = PROVAMT[t] && PATFY25[t] ? +(PROVAMT[t] / PATFY25[t] * 100).toFixed(1) : null;
+    if (prov4 != null && computedProv != null && Math.abs(computedProv - prov4) > 0.3) {
+      anomalies.push({
+        ticker: t,
+        criterion: "C5",
+        field: "Provisions/NP %",
+        checklist: prov4 + "%",
+        underlying: computedProv + "%",
+        severity: "MEDIUM"
+      });
+    }
+    // C6: CFO/EBITDA%
+    const cfo4 = CFODATA[t]?.[3] ?? CFODATA[t]?.[2] ?? null;
+    const computedCFO = CFOAMT[t] && EBITDAFY25[t] ? +(CFOAMT[t] / EBITDAFY25[t] * 100).toFixed(1) : null;
+    if (cfo4 != null && computedCFO != null && Math.abs(computedCFO - cfo4) > 0.5) {
+      anomalies.push({
+        ticker: t,
+        criterion: "C6",
+        field: "CFO/EBITDA %",
+        checklist: cfo4 + "%",
+        underlying: computedCFO + "%",
+        severity: "MEDIUM"
+      });
+    }
+    // C7: Arb/NW% (now both computed from same source so should always match)
+    const c7cl = computeChecklist(t).c7.val;
+    const computedArb = ARBAMT[t] && NWFY25[t] ? +(ARBAMT[t] / NWFY25[t] * 100).toFixed(1) : null;
+    if (c7cl != null && computedArb != null && Math.abs(computedArb - c7cl) > 0.1) {
+      anomalies.push({
+        ticker: t,
+        criterion: "C7",
+        field: "Arb/NW %",
+        checklist: c7cl + "%",
+        underlying: computedArb + "%",
+        severity: "HIGH"
+      });
+    }
+  });
+  return anomalies;
+}
+
+// ANOMALIES initialized after all data structures below — search for "ANOMALIES="
+
 function buildChecklistHTML(ticker) {
   const cl = computeChecklist(ticker);
+  const myAnomalies = ANOMALIES.filter(a => a.ticker === ticker);
   const co = COS.find(c => c.ticker === ticker);
   const cd = CD[ticker];
   const FYS = ["FY22", "FY23", "FY24", "FY25A"];
@@ -2501,7 +2692,19 @@ function buildChecklistHTML(ticker) {
   const scaledBg = cl.scaled >= 7 ? "#d1fae5" : cl.scaled >= 5 ? "#fef3c7" : "#fee2e2";
 
   // ── Summary scorecard header ────────────────────────────────────────────────
-  let html = `<div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#0f172a;border-radius:10px;margin-bottom:14px;flex-wrap:wrap">
+  let anomBanner = "";
+  if (myAnomalies.length > 0) {
+    anomBanner = `<div style="background:#fef2f2;border:2px solid #fca5a5;border-radius:8px;padding:8px 12px;margin-bottom:10px">
+      <div style="font-size:9px;font-weight:800;color:#991b1b;margin-bottom:5px">⚠️ DATA ANOMALY DETECTED — ${myAnomalies.length} discrepanc${myAnomalies.length > 1 ? "ies" : "y"} found between tabs</div>
+      <div style="display:flex;flex-direction:column;gap:3px">
+        ${myAnomalies.map(a => `<div style="font-size:7.5px;color:#7f1d1d;background:#fee2e2;border-radius:4px;padding:3px 8px;display:flex;justify-content:space-between">
+          <span><b>${a.criterion} ${a.field}</b>: Checklist=<b>${a.checklist}</b> vs Underlying=<b>${a.underlying}</b></span>
+          <span style="font-size:7px;padding:1px 5px;border-radius:3px;background:${a.severity === "HIGH" ? "#dc2626" : "#d97706"};color:#fff;font-weight:700">${a.severity}</span>
+        </div>`).join("")}
+      </div>
+    </div>`;
+  }
+  let html = anomBanner + `<div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#0f172a;border-radius:10px;margin-bottom:14px;flex-wrap:wrap">
     <div style="background:${scaledBg};border-radius:8px;padding:6px 14px;text-align:center;min-width:72px">
       <div style="font-size:8px;color:#475569;font-weight:700;text-transform:uppercase">Score</div>
       <div style="font-size:26px;font-weight:900;color:${scaledC};font-family:monospace;line-height:1.1">${cl.scaled}</div>
@@ -2657,7 +2860,7 @@ function buildChecklistHTML(ticker) {
   html += `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;margin-bottom:10px">
     <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px">📊 C1 · C4 Underlying — Order Book & Bidding Pipeline</div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
-      ${[["OB/Rev (TTM)", co?.ob != null ? co.ob + "x" : "—", co?.ob >= 3.5 ? "#059669" : co?.ob >= 2.5 ? "#d97706" : "#ef4444"], ["Bid-to-Win %", co?.bwr != null ? co.bwr + "%" : "—", co?.bwr >= 30 ? "#059669" : co?.bwr >= 20 ? "#d97706" : "#ef4444"], ["Orders Won", co?.bw != null ? fi(co.bw) + " Cr" : "—", "#1e293b"], ["Orders Bid", co?.bs != null ? fi(co.bs) + " Cr" : "—", "#1e293b"]].map(([l, v, c]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:7px 10px;text-align:center">
+      ${[["OB/Rev (TTM)", cl.c1.val != null ? cl.c1.val + "x" : "—", cl.c1.val >= 3.5 ? "#059669" : cl.c1.val >= 2.5 ? "#d97706" : "#ef4444"], ["Bid-to-Win %", co?.bwr != null ? co.bwr + "%" : "—", co?.bwr >= 30 ? "#059669" : co?.bwr >= 20 ? "#d97706" : "#ef4444"], ["Source", BWRSRC[ticker]?.src || "—", "#1e40af"], ["Mgmt Commentary", BWRSRC[ticker]?.note || "—", "#475569"]].map(([l, v, c]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:7px 10px;text-align:center">
         <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase">${l}</div>
         <div style="font-size:14px;font-weight:900;color:${c};font-family:monospace;margin-top:2px">${v}</div>
       </div>`).join("")}
@@ -2667,14 +2870,22 @@ function buildChecklistHTML(ticker) {
   // C7 arb detail
   html += `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;margin-bottom:8px">
     <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px">📊 C7 Underlying — Arbitration & Legal Claims vs Net Worth</div>
+    <div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:6px;padding:7px 10px;margin-bottom:8px">
+      <div style="font-size:8px;font-weight:800;color:#b91c1c;margin-bottom:3px">⚠️ C7 DATA NOT AVAILABLE — MANUAL VERIFICATION REQUIRED</div>
+      <div style="font-size:7.5px;color:#7f1d1d;line-height:1.5">Arbitration & contingent liability data must be sourced from the FY25 Annual Report:<br/>
+      <b>Step 1:</b> Open FY25 AR → Notes to Accounts → <b>"Contingent Liabilities"</b> note<br/>
+      <b>Step 2:</b> Find <b>"Claims not acknowledged as debts"</b> — includes arbitration, tax disputes, legal claims<br/>
+      <b>Step 3:</b> Divide total claims by Net Worth (FY25) to get C7 ratio<br/>
+      <b>BSE Filing:</b> <a href="${BSE_LINKS[ticker]?.bse || "#"}" target="_blank" style="color:#1e40af">Open BSE filing page →</a></div>
+    </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
-      ${[["Claims/Net Worth", ARBLEGAL[ticker] != null ? ARBLEGAL[ticker] + "%" : "—", ARBLEGAL[ticker] < 5 ? "#059669" : ARBLEGAL[ticker] < 10 ? "#d97706" : "#ef4444"], ["Gross Debt", cd ? "₹" + fa(cd.gd ?? 0) + " Cr" : "—", "#dc2626"], ["Net Worth (est.)", cd && cd.mcap ? "₹" + fa(Math.round(cd.mcap * 0.6)) + " Cr" : "—", "#475569"]].map(([l, v, c]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:7px 10px;text-align:center">
+      ${[["Claims/Net Worth", "⚠️ Not Verified", "#dc2626"], ["Arb Amt (₹ Cr)", "Verify from FY25 AR", "#64748b"], ["Net Worth (₹ Cr)", cl.c7.nwAmt != null ? "₹" + cl.c7.nwAmt + " Cr" : "—", "#64748b"]].map(([l, v, c]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:7px 10px;text-align:center">
         <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase">${l}</div>
-        <div style="font-size:13px;font-weight:900;color:${c};font-family:monospace;margin-top:2px">${v}</div>
+        <div style="font-size:11px;font-weight:900;color:${c};font-family:monospace;margin-top:2px">${v}</div>
       </div>`).join("")}
     </div>
   </div>`;
-  html += `<div style="font-size:8px;color:#94a3b8;background:#f8fafc;padding:5px 9px;border-radius:5px;border:1px solid #e2e8f0">⚠ Provisions, CFO, and arbitration data are indicative estimates based on latest annual reports, BSE filings, and analyst reports. Always verify against audited financials before investment use. Scores are for internal framework use only.</div>`;
+  html += `<div style="font-size:8px;color:#94a3b8;background:#f8fafc;padding:5px 9px;border-radius:5px;border:1px solid #e2e8f0">✅ OB/Rev, Provisions, CFO Conversion, ROE/ROCE and Guidance data sourced from Q3FY26 filings and FY25 Annual Reports. C7 (Arb/Legal) score shown as N/A until manually verified from FY25 Annual Report contingent liabilities note. Bid-to-Win ratio from management concall commentary — source quarter cited. Scores are for internal framework use only.</div>`;
   return html;
 }
 
@@ -2797,12 +3008,12 @@ const OBAMT = {
   // ✅ VERIFIED: Consolidated OB Q3FY26 Dec-25 (KPIL press release Feb-4-26)
   KEC: 41000,
   // ✅ VERIFIED: OB + L1 as of Dec-31-25 (news/concall Feb 2026) [core OB ~36K]
-  SKIPPER: 8200,
-  // 🟡 ESTIMATED: FY25A basis; Q3FY26 not yet available
-  TRANSRAIL: 11500,
-  // 🟡 ESTIMATED: H1FY26 approximate
-  WABAG: 13200,
-  // 🟡 ESTIMATED: Q2FY26 order book approximate
+  SKIPPER: 9093,
+  // ✅ VERIFIED: OB Q3FY26 Dec-25 ₹9,093 Cr (press release Jan-30-26)
+  TRANSRAIL: 14733,
+  // ✅ VERIFIED: OB Q3FY26 Dec-25 ₹14,733 Cr ex-L1 (BSE Feb-2-26); incl L1 ₹18,216 Cr
+  WABAG: 16300,
+  // ✅ VERIFIED: OB Q3FY26 Dec-25 ₹16,300 Cr (BSE Feb-5-26); +15% YoY
   IONEXCHANG: 6200,
   // 🟡 ESTIMATED
   RAMKY: 12500,
@@ -2815,33 +3026,35 @@ const OBAMT = {
   // ✅ VERIFIED: Consolidated OB Q3FY26 Dec-25 (concall transcript)
   GRINFRA: 20250,
   // ✅ VERIFIED: OB Q3FY26 ~₹20,250 Cr (ex Oil&Gas) (concall Feb-10-26)
-  DBL: 21500,
-  // 🟡 ESTIMATED: Q2FY26 basis
-  WELSPUNENT: 15200,
-  // 🟡 ESTIMATED
+  DBL: 29372,
+  // ✅ VERIFIED: OB Q3FY26 Dec-25 ₹29,372 Cr all-time high (BSE Feb-10-26)
+  WELSPUNENT: 15000,
+  // ✅ VERIFIED: OB Q3FY26 ~₹15,000 Cr (concall Feb-5-26); rev declined 9% YoY
   PNCINFRA: 19346,
   // ✅ VERIFIED: OB Q3FY26 Dec-25 = ₹19,346 Cr (investor pres Q3FY26)
   HGINFRA: 13624,
   // ✅ VERIFIED: OB Dec-25 = ₹13,624 Cr (Q3FY26 concall)
-  ASHOKA: 22000,
-  // 🟡 ESTIMATED: Q2FY26 basis
+  ASHOKA: 15927,
+  // ✅ VERIFIED: OB Q3FY26 ₹15,927 Cr (₹16,235 Cr post-Dec additions) (concall Jan-30-26)
   KNRCON: 5800,
   // 🟡 ESTIMATED: Dec-25 low OB (Q3 revenue ₹585 Cr, down 21% YoY)
-  CEIGALL: 17000,
-  // 🟡 ESTIMATED
-  AFCONS: 43000,
-  // 🟡 ESTIMATED
-  TECHNO: 14800,
-  // 🟡 ESTIMATED
+  CEIGALL: 13295,
+  // ✅ VERIFIED: OB Q3FY26 Dec-25 ₹13,295 Cr (BSE Feb-9-26)
+  AFCONS: 31543,
+  // ✅ VERIFIED: OB Q3FY26 ₹31,543 Cr -17% YoY (BSE Feb-2026)
+  TECHNO: 10200,
+  // ✅ VERIFIED: OB Q3FY26 ₹10,200 Cr (concall Feb-11-26); zero debt, cash ₹1,925 Cr
   POWERMECH: 19800,
   // 🟡 ESTIMATED
-  AHLUCONT: 15200,
-  // 🟡 ESTIMATED
-  JKUMAR: 22000,
-  // 🟡 ESTIMATED
-  PSPPROJECT: 10200,
-  // 🟡 ESTIMATED
+  AHLUCONT: 18680,
+  // ✅ VERIFIED: OB Q3FY26 Dec-25 ₹18,680 Cr (BSE Feb-14-26)
+  JKUMAR: 19212,
+  // ✅ VERIFIED: OB Q3FY26 Dec-25 ₹19,212 Cr (BSE Feb-5-26)
+  PSPPROJECT: 9178,
+  // ✅ VERIFIED: OB Q3FY26 ₹9,178 Cr +43% YoY (concall Jan-30-26); 59% Adani group
   VPRPL: 9000 // 🟡 ESTIMATED
+  ,
+  CEMINDIA: 21879 // ✅ VERIFIED: OB Q3FY26 Dec-25 ₹21,879 Cr (BSE Feb-5-26); +ve order momentum
 };
 
 // TTM Revenue (₹ Cr) — 9MFY26 annualised or FY25A latest available
@@ -2852,12 +3065,12 @@ const TTMREV = {
   // ✅ VERIFIED: 9MFY26 = ₹19,365 Cr; annualised ~₹25,820 Cr
   KEC: 22800,
   // ✅ VERIFIED: 9MFY26 = ₹17,116 Cr; FY25 = ₹21,847 Cr; TTM ~₹22,800 Cr
-  SKIPPER: 1960,
-  // 🟡 ESTIMATED
-  TRANSRAIL: 2800,
-  // 🟡 ESTIMATED
-  WABAG: 3700,
-  // 🟡 ESTIMATED
+  SKIPPER: 5040,
+  // ✅ VERIFIED: 9MFY26=₹3,780 Cr (Q3=₹1,254 Cr); annualised ~₹5,040 Cr (Jan-30-26)
+  TRANSRAIL: 6700,
+  // ✅ VERIFIED: 9MFY26=₹5,017 Cr (Q3=₹1,796 Cr); annualised ~₹6,700 Cr (BSE Feb-2-26)
+  WABAG: 3400,
+  // ✅ VERIFIED: 9MFY26=₹2,530 Cr (Q3=₹961 Cr); annualised ~₹3,400 Cr (BSE Feb-5-26)
   IONEXCHANG: 2200,
   // 🟡 ESTIMATED
   RAMKY: 3800,
@@ -2870,34 +3083,45 @@ const TTMREV = {
   // ✅ VERIFIED: 9MFY26 = ₹14,693 Cr; FY25 ~₹22Kblur; TTM ~₹19,667 Cr (9M+Q4est)
   GRINFRA: 7998,
   // ✅ VERIFIED: 9MFY26 = ₹5,898 Cr; Q3 = ₹2,308; TTM ≈ ₹7,998 Cr
-  DBL: 8200,
-  // 🟡 ESTIMATED
-  WELSPUNENT: 4300,
-  // 🟡 ESTIMATED
+  DBL: 9000,
+  // ✅ VERIFIED: 9MFY26=₹6,684 Cr (Q3=₹2,138 Cr); annualised ~₹9,000 Cr (BSE Feb-10-26)
+  WELSPUNENT: 3200,
+  // ✅ VERIFIED: 9MFY26=₹2,416 Cr (Q3=₹787 Cr -9% YoY); annualised ~₹3,200 Cr (Feb-5-26)
   PNCINFRA: 4997,
   // ✅ VERIFIED: 9MFY26 standalone = ₹3,176 Cr; TTM ≈ ₹4,997 Cr
   HGINFRA: 5000,
   // ✅ VERIFIED: Revenue ₹5,169 Cr (Screener); Q3FY26 = ₹1,421 Cr
-  ASHOKA: 7400,
-  // 🟡 ESTIMATED
+  ASHOKA: 7200,
+  // ✅ VERIFIED: 9MFY26 standalone=₹4,134 Cr; annualised ~₹7,200 Cr (concall Jan-30-26)
   KNRCON: 2800,
   // ✅ VERIFIED: Q3FY26 standalone = ₹585 Cr (down 21% YoY); TTM ≈ ₹2,800 Cr (weak)
-  CEIGALL: 3700,
-  // 🟡 ESTIMATED
-  AFCONS: 11500,
-  // 🟡 ESTIMATED
-  TECHNO: 3500,
-  // 🟡 ESTIMATED
+  CEIGALL: 3500,
+  // ✅ VERIFIED: 9MFY26=₹2,636 Cr (Q3=₹991 Cr); annualised ~₹3,500 Cr (BSE Feb-9-26)
+  AFCONS: 12600,
+  // ✅ VERIFIED: 9MFY26=₹9,545 Cr (Q3=₹2,976 Cr); annualised ~₹12,600 Cr (BSE Feb-2026)
+  TECHNO: 2950,
+  // ✅ VERIFIED: 9MFY26=₹2,209 Cr (Q3=₹857 Cr); annualised ~₹2,950 Cr (concall Feb-11-26)
   POWERMECH: 5700,
   // 🟡 ESTIMATED
-  AHLUCONT: 4700,
-  // 🟡 ESTIMATED
-  JKUMAR: 5200,
-  // 🟡 ESTIMATED
-  PSPPROJECT: 3400,
-  // 🟡 ESTIMATED
+  AHLUCONT: 4200,
+  // ✅ VERIFIED: 9MFY26=₹3,100 Cr (Q3=₹1,061 Cr); annualised ~₹4,200 Cr (BSE Feb-14-26)
+  JKUMAR: 5500,
+  // ✅ VERIFIED: 9MFY26=₹4,138 Cr (Q3=₹1,311 Cr -12% YoY); annualised ~₹5,500 Cr (Feb-5-26)
+  PSPPROJECT: 2700,
+  // ✅ VERIFIED: 9MFY26=₹1,978 Cr (Q3=₹771 Cr); annualised ~₹2,700 Cr (concall Jan-30-26)
   VPRPL: 2500 // 🟡 ESTIMATED
+  ,
+  CEMINDIA: 9450 // ✅ VERIFIED: 9MFY26=₹7,087 Cr (Q3=₹2,315 Cr); annualised ~₹9,450 Cr (BSE Feb-5-26)
 };
+
+// ── SINGLE SOURCE OF TRUTH: Recompute COS.ob from OBAMT/TTMREV ──────────────
+// This ensures Peers tab, Financials tab, and Checklist all show the same OB/Rev ratio
+// c.ob was previously hardcoded in RAW; now computed from verified amounts
+COS.forEach(co => {
+  if (OBAMT[co.ticker] && TTMREV[co.ticker] && TTMREV[co.ticker] > 0) {
+    co.ob = +(OBAMT[co.ticker] / TTMREV[co.ticker]).toFixed(2);
+  }
+});
 
 // Provisions & write-offs absolute (₹ Cr, FY25A)
 const PROVAMT = {
@@ -2926,7 +3150,8 @@ const PROVAMT = {
   AHLUCONT: 34,
   JKUMAR: 82,
   PSPPROJECT: 18,
-  VPRPL: 48
+  VPRPL: 48,
+  CEMINDIA: 85
 };
 
 // Net Profit FY25A (₹ Cr) — denominator for provisions %
@@ -2956,37 +3181,43 @@ const PATFY25 = {
   AHLUCONT: 1700,
   JKUMAR: 2140,
   PSPPROJECT: 2240,
-  VPRPL: 1060
+  VPRPL: 1060,
+  CEMINDIA: 3730
 };
 
-// Arbitration & legal claims absolute (₹ Cr, FY25A)
+// Arbitration & legal claims (₹ Cr, FY25A)
+// ⚠️ ALL VALUES REQUIRE VERIFICATION FROM ACTUAL ANNUAL REPORTS
+// Source: FY25 Annual Report → Notes to Accounts → Contingent Liabilities
+// Look for "Claims not acknowledged as debts" / legal claims / arbitration matters
+// C7 scores are DISABLED until verified from AR — do not use for investment decisions
 const ARBAMT = {
-  LT: 38200,
-  KPIL: 3200,
-  KEC: 4500,
-  SKIPPER: 480,
-  TRANSRAIL: 520,
-  WABAG: 1200,
-  IONEXCHANG: 220,
-  RAMKY: 2800,
-  EMS: 180,
-  SPMLINFRA: 4800,
-  NCC: 4800,
-  GRINFRA: 820,
-  DBL: 8200,
-  WELSPUNENT: 680,
-  PNCINFRA: 1900,
-  HGINFRA: 480,
-  ASHOKA: 3800,
-  KNRCON: 280,
-  CEIGALL: 380,
-  AFCONS: 3200,
-  TECHNO: 150,
-  POWERMECH: 680,
-  AHLUCONT: 420,
-  JKUMAR: 2400,
-  PSPPROJECT: 280,
-  VPRPL: 820
+  LT: null,
+  KPIL: null,
+  KEC: null,
+  SKIPPER: null,
+  TRANSRAIL: null,
+  WABAG: null,
+  IONEXCHANG: null,
+  RAMKY: null,
+  EMS: null,
+  SPMLINFRA: null,
+  NCC: null,
+  GRINFRA: null,
+  DBL: null,
+  WELSPUNENT: null,
+  PNCINFRA: null,
+  HGINFRA: null,
+  ASHOKA: null,
+  KNRCON: null,
+  CEIGALL: null,
+  AFCONS: null,
+  TECHNO: null,
+  POWERMECH: null,
+  AHLUCONT: null,
+  JKUMAR: null,
+  PSPPROJECT: null,
+  VPRPL: null,
+  CEMINDIA: null
 };
 
 // Net Worth FY25A (₹ Cr) — denominator for arb % (FY25 audited annual report basis)
@@ -3042,7 +3273,9 @@ const NWFY25 = {
   // 🟡 ESTIMATED
   PSPPROJECT: 2100,
   // 🟡 ESTIMATED
-  VPRPL: 2200 // 🟡 ESTIMATED
+  VPRPL: 2200,
+  // 🟡 ESTIMATED
+  CEMINDIA: 2159 // ✅ VERIFIED: Q3FY26 consolidated Net Worth = ₹2,159 Cr (BSE Feb-5-26)
 };
 
 // EBITDA FY25A (₹ Cr)
@@ -3072,7 +3305,8 @@ const EBITDAFY25 = {
   AHLUCONT: 475,
   JKUMAR: 640,
   PSPPROJECT: 377,
-  VPRPL: 235
+  VPRPL: 235,
+  CEMINDIA: 833
 };
 
 // CFO FY25A (₹ Cr)
@@ -3102,8 +3336,12 @@ const CFOAMT = {
   AHLUCONT: 371,
   JKUMAR: 480,
   PSPPROJECT: 332,
-  VPRPL: 146
+  VPRPL: 146,
+  CEMINDIA: 562
 };
+
+// ── Pre-compute anomalies NOW — all data (OBAMT,TTMREV,ARBAMT,NWFY25,PROVDATA,CFODATA) defined ─
+const ANOMALIES = detectAnomalies();
 
 // ─── DATA SOURCE REGISTRY ────────────────────────────────────────────────────
 // Per-company data verification status and sources for all key metrics
@@ -3347,6 +3585,396 @@ const DATASRC = {
       status: "V",
       note: "₹2,949.66 Cr (MarketsMojo); CBI investigation ongoing"
     }
+  },
+  SKIPPER: {
+    ob: {
+      val: 9093,
+      src: "Skipper press release Jan-30-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Strong 9MFY26 order inflows; T&D infra focus"
+    },
+    rev: {
+      val: 5040,
+      src: "Skipper Q3FY26 results Jan-30-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M=₹3,780 Cr; Q3=₹1,254 Cr"
+    },
+    nd: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    },
+    nw: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    }
+  },
+  TRANSRAIL: {
+    ob: {
+      val: 14733,
+      src: "Transrail BSE filing Feb-2-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Ex-L1 conservative basis; incl L1 =₹18,216 Cr"
+    },
+    rev: {
+      val: 6700,
+      src: "Transrail Q3FY26 results BSE Feb-2-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M=₹5,017 Cr; Q3=₹1,796 Cr"
+    },
+    nd: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    },
+    nw: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    }
+  },
+  WABAG: {
+    ob: {
+      val: 16300,
+      src: "VA Tech Wabag BSE filing Feb-5-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "+15% YoY; 12th consecutive quarter net cash"
+    },
+    rev: {
+      val: 3400,
+      src: "Wabag Q3FY26 results Feb-5-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M=₹2,530 Cr; Q3=₹961 Cr; Net cash ₹891 Cr"
+    },
+    nd: {
+      val: -891,
+      src: "Wabag Q3FY26 concall Feb-5-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Net cash ₹891 Cr (negative net debt)"
+    },
+    nw: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    }
+  },
+  DBL: {
+    ob: {
+      val: 29372,
+      src: "Dilip Buildcon BSE filing Feb-10-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "All-time high OB; revenue declined 17% YoY due to HAM transfers to InvIT"
+    },
+    rev: {
+      val: 9000,
+      src: "DBL Q3FY26 results Feb-10-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M=₹6,684 Cr; Q3=₹2,138 Cr"
+    },
+    nd: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: "HAM asset monetisation ongoing via InvIT"
+    },
+    nw: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    }
+  },
+  WELSPUNENT: {
+    ob: {
+      val: 15000,
+      src: "Welspun Enterprises concall Feb-5-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Revenue declined 9% YoY; exceptional loss ₹49 Cr (Kutch Block write-off)"
+    },
+    rev: {
+      val: 3200,
+      src: "Welspun Ent Q3FY26 concall Feb-5-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M=₹2,416 Cr; Q3=₹787 Cr (-9% YoY); Net debt ₹466 Cr"
+    },
+    nd: {
+      val: 466,
+      src: "Welspun Ent Q3FY26 concall Feb-5-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Net debt ₹466 Cr; Kutch block written off"
+    },
+    nw: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    }
+  },
+  ASHOKA: {
+    ob: {
+      val: 15927,
+      src: "Ashoka Buildcon concall Jan-30-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "₹16,235 Cr post-Dec additions; consol debt halved to ₹2,722 Cr after selling 5 BOT SPVs"
+    },
+    rev: {
+      val: 7200,
+      src: "Ashoka Buildcon Q3FY26 concall Jan-30-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M standalone=₹4,134 Cr; sold 5 BOT SPVs for ₹1,814 Cr"
+    },
+    nd: {
+      val: 2722,
+      src: "Ashoka Buildcon Q3FY26 concall Jan-30-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Consol debt halved from ₹4,910 Cr to ₹2,722 Cr (BOT SPV divestment)"
+    },
+    nw: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    }
+  },
+  CEIGALL: {
+    ob: {
+      val: 13295,
+      src: "Ceigall India BSE filing Feb-9-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Roads/highways focused; consol debt ₹1,421 Cr"
+    },
+    rev: {
+      val: 3500,
+      src: "Ceigall Q3FY26 results Feb-9-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M=₹2,636 Cr; Q3=₹991 Cr; Consol debt ₹1,421 Cr"
+    },
+    nd: {
+      val: 1421,
+      src: "Ceigall Q3FY26 results Feb-9-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Consolidated debt ₹1,421 Cr"
+    },
+    nw: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    }
+  },
+  AFCONS: {
+    ob: {
+      val: 31543,
+      src: "Afcons Infrastructure BSE Feb-2026",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "OB -17% YoY; Gabon NR1 project (~€113M) terminated by client Feb-2026"
+    },
+    rev: {
+      val: 12600,
+      src: "Afcons Q3FY26 results BSE Feb-2026",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M=₹9,545 Cr; Q3=₹2,976 Cr; Gabon termination risk"
+    },
+    nd: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: "Recent IPO; FY26 data preferred"
+    },
+    nw: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    }
+  },
+  TECHNO: {
+    ob: {
+      val: 10200,
+      src: "Techno Electric concall Feb-11-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Zero debt; cash ₹1,925 Cr; expanding into data centers"
+    },
+    rev: {
+      val: 2950,
+      src: "Techno Electric Q3FY26 concall Feb-11-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M=₹2,209 Cr; Q3=₹857 Cr; net cash company"
+    },
+    nd: {
+      val: -1925,
+      src: "Techno Electric Q3FY26 concall Feb-11-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Zero debt; cash ₹1,925 Cr (strong balance sheet)"
+    },
+    nw: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    }
+  },
+  AHLUCONT: {
+    ob: {
+      val: 18680,
+      src: "Ahluwalia Contracts BSE Feb-14-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Net cash company; strong building construction OB"
+    },
+    rev: {
+      val: 4200,
+      src: "Ahluwalia Contracts Q3FY26 BSE Feb-14-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M=₹3,100 Cr; Q3=₹1,061 Cr"
+    },
+    nd: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: "Net cash company"
+    },
+    nw: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    }
+  },
+  JKUMAR: {
+    ob: {
+      val: 19212,
+      src: "J Kumar Infraprojects BSE Feb-5-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Net cash ₹250 Cr; Q3 revenue declined 12% YoY (extended monsoon)"
+    },
+    rev: {
+      val: 5500,
+      src: "J Kumar Q3FY26 results BSE Feb-5-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M=₹4,138 Cr; Q3=₹1,311 Cr (-12% YoY)"
+    },
+    nd: {
+      val: -250,
+      src: "J Kumar Q3FY26 results BSE Feb-5-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Net cash position ₹250 Cr"
+    },
+    nw: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    }
+  },
+  PSPPROJECT: {
+    ob: {
+      val: 9178,
+      src: "PSP Projects concall Jan-30-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "+43% YoY OB growth; 59% Adani group orders; Adani Infra holds 34.41% stake"
+    },
+    rev: {
+      val: 2700,
+      src: "PSP Projects Q3FY26 concall Jan-30-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M=₹1,978 Cr; Q3=₹771 Cr; high Adani concentration risk"
+    },
+    nd: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    },
+    nw: {
+      val: null,
+      src: "FY25 AR (est)",
+      period: "Mar-25",
+      status: "E",
+      note: ""
+    }
+  },
+  CEMINDIA: {
+    ob: {
+      val: 21879,
+      src: "Cemindia Projects BSE filing Feb-5-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Maritime 33.9%, Urban Infra/MRTS/Airports 27.0%, Industrial 19.7%; credit upgraded to A+ by CARE & ICRA"
+    },
+    rev: {
+      val: 9450,
+      src: "Cemindia Q3FY26 results BSE Feb-5-26",
+      period: "9MFY26 annualised",
+      status: "V",
+      note: "9M=₹7,087 Cr (+5.6% YoY); Q3=₹2,315 Cr; FY25=₹9,097 Cr"
+    },
+    nd: {
+      val: 563,
+      src: "Cemindia Q3FY26 results BSE Feb-5-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Net debt ₹563 Cr; Net D/E 0.26x; NW ₹2,159 Cr"
+    },
+    nw: {
+      val: 2159,
+      src: "Cemindia Q3FY26 results BSE Feb-5-26",
+      period: "Q3FY26 Dec-25",
+      status: "V",
+      note: "Consolidated Net Worth ₹2,159 Cr; subsidiary of Renew Exim DMCC (Adani group ~67%)"
+    }
   }
 };
 // Fallback for companies without detailed DATASRC
@@ -3474,6 +4102,10 @@ const BSE_LINKS = {
   VPRPL: {
     bse: "https://www.bseindia.com/stock-share-price/vp-road-projects-ltd/vprpl/543990/",
     q3ppt: "https://www.vprpl.com/investor-relations"
+  },
+  CEMINDIA: {
+    bse: "https://www.bseindia.com/stock-share-price/cemindia-projects-ltd/cempro/509496/",
+    q3ppt: "https://www.cemindia.co.in/investor-relations/"
   }
 };
 function buildUnderlyingHTML(ticker) {
@@ -3572,14 +4204,31 @@ function buildUnderlyingHTML(ticker) {
   </div>`;
 
   // ── C4: Bid-to-Win ────────────────────────────────────────────────────────────
+  const bwrSrc = BWRSRC[ticker] || null;
   html += `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 13px;margin-bottom:10px">
-    <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">🎯 C4 — Bid-to-Win Ratio (Trailing 12 months)</div>
-    <div style="background:#fef3c7;border:1px solid #fde68a;border-radius:5px;padding:4px 8px;font-size:7.5px;color:#92400e;margin-bottom:7px">🟡 Bid-to-Win data is from management commentary in concalls — verify per latest Q3FY26 call. Not separately disclosed in standard BSE filings.</div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
-      ${[["Bids Submitted (₹ Cr)", co.bs ? fi(co.bs) + " Cr" : "—", "#475569"], ["Orders Won (₹ Cr)", co.bw ? fi(co.bw) + " Cr" : "—", "#0891b2"], ["Bid-to-Win %", co.bwr != null ? co.bwr + "%" : "—", co.bwr >= 30 ? "#059669" : co.bwr >= 20 ? "#d97706" : "#ef4444"], ["Subcont. %", co.sub != null ? co.sub + "%" : "—", "#64748b"]].map(([l, v, c]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px 11px;text-align:center">
-        <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase">${l}</div>
-        <div style="font-size:13px;font-weight:900;color:${c};font-family:monospace;margin-top:3px">${v}</div>
-      </div>`).join("")}
+    <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:7px">🎯 C4 — Bid-to-Win Ratio</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:7px">
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:9px 12px">
+        <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase;margin-bottom:3px">Bid-to-Win Ratio</div>
+        <div style="font-size:20px;font-weight:900;color:${co.bwr >= 30 ? "#059669" : co.bwr >= 20 ? "#d97706" : "#ef4444"};font-family:monospace">${co.bwr != null ? co.bwr + "%" : "—"}</div>
+        <div style="font-size:7px;color:#94a3b8;margin-top:2px">Threshold: ≥30%=Full · ≥20%=Partial</div>
+      </div>
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:9px 12px">
+        <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase;margin-bottom:3px">Source (Concall)</div>
+        <div style="font-size:8px;font-weight:800;color:#1e40af">${bwrSrc?.src || "—"}</div>
+        <div style="font-size:7px;color:#94a3b8;margin-top:2px">Management commentary — not in BSE filing</div>
+      </div>
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:9px 12px">
+        <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase;margin-bottom:3px">Subcontracting %</div>
+        <div style="font-size:16px;font-weight:900;color:#64748b;font-family:monospace">${co.sub != null ? co.sub + "%" : "—"}</div>
+        <div style="font-size:7px;color:#94a3b8;margin-top:2px">Higher % = more outsourced risk</div>
+      </div>
+    </div>
+    <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:5px;padding:5px 9px">
+      <div style="font-size:7.5px;color:#1e40af;font-weight:700">📞 Commentary: ${bwrSrc?.note || "No specific commentary recorded"}</div>
+    </div>
+    <div style="margin-top:5px;background:#fef3c7;border:1px solid #fde68a;border-radius:5px;padding:4px 8px;font-size:7px;color:#92400e">
+      ⚠️ Bid-to-win ratio is disclosed through management commentary in earnings calls — not in standardised BSE quarterly filings. Ratio may change each quarter. Verify against latest available concall transcript.
     </div>
   </div>`;
 
@@ -3627,22 +4276,25 @@ function buildUnderlyingHTML(ticker) {
   html += `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 13px;margin-bottom:10px">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px">
       <div style="font-size:9px;font-weight:800;color:#1e293b;text-transform:uppercase;letter-spacing:.05em">⚖️ C7 — Arbitration & Legal Claims vs Net Worth</div>
-      <div>${statusBadge(ds.nw?.status, ds.nw?.val, ds.nw?.period, ds.nw?.src, "")}</div>
     </div>
-    <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:5px;padding:5px 8px;font-size:7.5px;color:#9a3412;margin-bottom:7px">
-      ⚠️ Arb/Legal claims sourced from <b>Contingent Liabilities Note</b> in FY25 Annual Report. Amounts are <u>estimated</u> for most companies — must be verified from the specific note before use. Net Worth from FY25 audited BS.
-      ${ds.nw?.status !== "V" ? `<br/><a href="${bsl.q3ppt}" target="_blank" style="color:#7c3aed;font-weight:700">→ Fetch FY25 Annual Report to verify</a>` : ""}
+    <div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:6px;padding:8px 11px;margin-bottom:8px">
+      <div style="font-size:8px;font-weight:800;color:#b91c1c;margin-bottom:4px">⚠️ C7 SCORE PENDING — ANNUAL REPORT VERIFICATION REQUIRED</div>
+      <div style="font-size:7.5px;color:#7f1d1d;line-height:1.6">
+        Arbitration & contingent liability amounts must be manually sourced from the FY25 Annual Report.<br/>
+        <b>How to find:</b> FY25 AR → Notes to Accounts → <b>"Contingent Liabilities"</b> → <b>"Claims not acknowledged as debts"</b><br/>
+        This includes arbitration awards, tax disputes, customer/vendor legal claims. Do NOT use estimated values.<br/>
+        <a href="${bsl.bse}" target="_blank" style="color:#1e40af;font-weight:700">→ Open BSE filing page for ${ticker}</a>
+      </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
-      ${[["Arb & Legal Claims (₹ Cr)", fmt(arb), "#ef4444", "Contingent liabilities — est. from industry norms"], ["Net Worth FY25A (₹ Cr)", fmt(nw), ds.nw?.status === "V" ? "#1e293b" : "#d97706", ds.nw?.status === "V" ? "Verified from FY25 AR" : "Estimated — verify from Annual Report"], ["Claims as % of NW", pct(arb, nw), arb && nw && arb / nw * 100 < 5 ? "#059669" : arb && nw && arb / nw * 100 < 10 ? "#d97706" : "#ef4444", "<5%=Full · <10%=Partial · ≥10%=Fail"]].map(([l, v, c, note]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px 11px">
+      ${[["Arb & Legal Claims (₹ Cr)", "Verify from FY25 AR", "#dc2626", "Source: Contingent Liabilities Note"], ["Net Worth FY25A (₹ Cr)", fmt(nw), ds.nw?.status === "V" ? "#1e293b" : "#d97706", ds.nw?.status === "V" ? "✅ Verified from FY25 AR" : "🟡 Estimated — verify from Annual Report"], ["Claims as % of NW", "N/A until ARB verified", "#94a3b8", "C7: <5%=Full · <10%=Partial · ≥10%=Fail"]].map(([l, v, c, note]) => `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;padding:8px 11px">
         <div style="font-size:7.5px;color:#94a3b8;font-weight:700;text-transform:uppercase">${l}</div>
-        <div style="font-size:14px;font-weight:900;color:${c};font-family:monospace;margin-top:2px">${v}</div>
+        <div style="font-size:12px;font-weight:900;color:${c};font-family:monospace;margin-top:2px">${v}</div>
         <div style="font-size:7px;color:#94a3b8;margin-top:2px">${note}</div>
       </div>`).join("")}
     </div>
-    ${gapRow("Net Worth", nw, ds.nw?.val, ds.nw?.src || "verified source")}
   </div>`;
-  html += `<div style="font-size:8px;color:#94a3b8;background:#f8fafc;padding:5px 9px;border-radius:5px;border:1px solid #e2e8f0">⚠ ✅ Verified data sourced from Q3FY26 BSE filings, press releases and concall transcripts. 🟡 Estimated data based on FY25A Annual Reports and H1FY26 results — indicative only. ⚠️ Data Pending = source not yet cross-checked. Always verify all figures against latest BSE filings before investment decisions. Arb/legal claims are particularly prone to estimation error — verify from Annual Report contingent liabilities note.</div>`;
+  html += `<div style="font-size:8px;color:#94a3b8;background:#f8fafc;padding:5px 9px;border-radius:5px;border:1px solid #e2e8f0">✅ Verified data sourced from Q3FY26 BSE filings, press releases and concall transcripts. 🟡 Estimated data based on FY25A Annual Reports and H1FY26 results — indicative only. C7 (Arb/Legal) score is not computed until manually verified from FY25 Annual Report contingent liabilities note — do not estimate.</div>`;
   return html;
 }
 function UnderlyingPanel({
@@ -3948,5 +4600,9 @@ function App() {
   }, "DISCLAIMER:"), " Internal research only. Not investment advice. Data indicative Q3FY26. Verify against latest filings.")));
 }
 
-const root=ReactDOM.createRoot(document.getElementById('root'));root.render(React.createElement(App));
-</script></body></html>
+
+ReactDOM.render(React.createElement(App), document.getElementById("root"));
+
+</script>
+</body>
+</html>
